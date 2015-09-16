@@ -19,6 +19,7 @@
         }*/
 
 $d = array("zero", "one", "two", "cat", "dog");
+$d[10] = "bird";
 foreach($d as $value){
     echo "<p>My value in the loop is:  ".$value."<br></br></p>";
 }
