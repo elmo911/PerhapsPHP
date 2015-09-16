@@ -1,0 +1,62 @@
+<html>
+<body>
+
+<p>Please enter the following information and click Submit</p>
+<br></br>
+
+<form method="POST" action="test.php">
+  <table border="1" cellpadding="0" bordercolor="green">
+    <tr><td width="12%" align="left">Company:</td>                      <td width="88%" align="left">       
+          <input type="text" name="Company" size="50">
+        </td></tr>
+    <tr><td width="12%" align="left">First Name:</td>                      <td width="88%" align="left">       
+          <input type="text" name="FName" size="50">
+        </td></tr>
+    <tr><td width="12%" align="left">Last Name</td>                      <td width="88%" align="left">       
+          <input type="text" name="LName" size="50">
+        </td></tr>
+    <tr><td width="12%" align="left">Address</td>                      <td width="88%" align="left">       
+          <input type="text" name="Address" size="50">
+        </td></tr>
+    <tr><td width="12%" align="left">Contact:</td>                      <td width="88%" align="left">       
+          <input type="text" name="Contact" size="50">
+        </td></tr>
+    <tr><td width="12%" align="left">Phone</td>                      <td width="88%" align="left">       
+          <input type="text" name="Phone" size="50">
+        </td></tr>
+        <tr><td width="12%" align="left">Age</td>                                      <td width="88%" align="left">       
+          <input type="number" min="18" max="120" name="age" size="3">
+        </td></tr>
+        <tr><td width="12%" align="left">Birthdate</td>                                  <td width="88%" align="left">       
+            <input type="date" min="01-01-1900" max="01-01-1998" name="BDate" size="10">
+        </td></tr>
+        <tr><td width="12%" align="left">What is your question?</td>                     <td width="88%" align="left">       
+            <textarea rows="4" cols="40" name="Question" size="50"></textarea>
+        </td></tr>        
+        <tr>
+        <table border="1" cellpadding="0" bordercolor="FFFFFF">
+         <tr>
+         <td width="20%" align="center">Stronly Disagree</td>
+         <td width="20%" align="center">Disagree</td>
+         <td width="20%" align="center">Neutral/Undecided</td>
+         <td width="20%" align="center">Agree</td>
+         <td width="20%" align="center">Stronly Agree</td>
+         </tr>
+         <tr>
+          <td width="20%" align="center"><input type="radio" name="A101" value="1"></input></td>
+          <td width="20%" align="center"><input type="radio" name="A101" value="2"/></td>
+          <td width="20%" align="center"><input type="radio" name="A101" value="3"/></td>
+          <td width="20%" align="center"><input type="radio" name="A101" value="4"/></td>
+          <td width="20%" align="center"><input type="radio" name="A101" value="5"/></td>
+         </tr>
+        </table>
+        </tr>
+        <tr><td width="12%" align="left">
+        <input type="submit" value="Submit" name="sb" size="50">
+        </td></tr>
+  </table>
+</form>
+
+
+</body>
+</html>
