@@ -3,7 +3,7 @@
     <?php
         $count = 0;
         while ($count < 10){
-            echo "<p>my number in the loop is: "."<br></br>";
+            echo "<p>my number in the loop is: ".$count."<br></br>";
             $count++;
         }
     ?>
