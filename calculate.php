@@ -1,34 +1,36 @@
 <?php
-//Create varibles to hold information passed from another page.
-$myArray=array();
 
-$myArray[0]=$_POST["FName"];
-$myArray[1]=$_POST["LName"];
-$myArray[2]=$_POST["Company"];
-$myArray[3]=$_POST["Contact"];
-$myArray[4]=$_POST["Phone"];
-$myArray[5]=$_POST["Question"];
-$myArray[6]=$_POST["A101"];
+include 'metricfunctions.php';
 
-echo "Customer: ".$myArray[0]." ".$myArray[1]."<br></br>";
-echo "Company: ".$myArray[2]."<br></br>";
-echo "Phone: ".$myArray[4]."<br></br>";
-echo $myArray[5]."<br></br>";
-echo "Do you agree?"."<br></br>";
-if ($myArray[6]==1) {
-  echo "Strongly Disagree";
+$conv = new MetricFunctions();
+
+$F=$_POST["Fahrenheit"];
+$C=$conv->FtoC($F);
+$LB=$_POST["Pounds"];
+$KG=$conv->LBtoKG($LB);
+$MI=$_POST["Miles"];
+$KM=$conv->MItoKM($MI);
+
+$count = 0;
+
+if ($F!=0) {
+  echo $F." degrees F = ".$C." degrees Celsius<br></br>";
+    count++;
 }
-else if ($myArray[6]==2) {
-  echo "Disagree";
+if ($LB!=0) {
+  echo $LB." Pounds = ".$KG." Kilograms<br></br>";
+    count++;
 }
-else if ($myArray[6]==3) {
-  echo "Neutral/Undecided";
+if ($MI!=0) {
+  echo $MI." Miles = ".$KM." Kilometers<br></br>";
+    count++;
 }
-else if ($myArray[6]==4) {
-  echo "Agree";
+if ($count > 0) {
+  echo $count." Conversions Calculated";
 }
-else if ($myArray[6]==5) {
-  echo "Strongly Agree";
+
+else {
+    echo "No conversions were made. TIP: did you leave all values as 0?";
 }
 
 ?>
