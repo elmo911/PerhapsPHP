@@ -15,15 +15,15 @@ $count = 0;
 
 if ($F!=0) {
   echo $F." degrees F = ".$C." degrees Celsius<br></br>";
-    count++;
+    $count++;
 }
 if ($LB!=0) {
   echo $LB." Pounds = ".$KG." Kilograms<br></br>";
-    count++;
+    $count++;
 }
 if ($MI!=0) {
   echo $MI." Miles = ".$KM." Kilometers<br></br>";
-    count++;
+    $count++;
 }
 if ($count > 0) {
   echo $count." Conversions Calculated";
