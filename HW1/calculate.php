@@ -1,9 +1,79 @@
 <?php
 
 include 'metricfunctions.php';
+session_start();
 
 $conv = new MetricFunctions();
 
+if($_SESSION['submitted'] ==1){
+$_SESSION['submitted']=0;
+echo '<html>';
+echo '<body>';
+echo '<form method="POST" action="calculate.php">';
+echo '<table cellpadding="0">';
+echo '<tr>';
+echo '<td width="20%" align="left">Fahrenheit:</td>';
+echo '<td width="20%" align="left">';
+echo '<input type="text" name="Fahrenheit" size="20" value="0">';
+echo '</td>';
+echo '</tr>';
+echo '<tr>';
+echo '<td width="20%" align="left">Pounds:</td>';
+echo '<td width="20%" align="left">';
+echo '<input type="text" name="Pounds" size="20" value="0">';
+echo '</td>';
+echo '</tr>';
+echo '<tr>';
+echo '<td width="20%" align="left">Miles:</td>';
+echo '<td width="20%" align="left">';
+echo '<input type="text" name="Miles" size="20" value="0">';
+echo '</td>';
+echo '</tr>';
+echo '<tr border="0">';
+echo '<td align="left">';
+echo '<input type="submit" value="Calculate" name="calc">';
+echo '</td>';
+echo '</tr>';
+echo '</table>';
+echo '</form>';
+echo '</body>';
+echo '</html>';
+}
+else{
+$_SESSION['submitted']=1;
+echo '<html>';
+echo '<body>';
+echo '<form method="POST" action="calculate.php">';
+echo '<table cellpadding="0">';
+echo '<tr>';
+echo '<td width="20%" align="left">Fahrenheit:</td>';
+echo '<td width="20%" align="left">';
+echo '<input type="text" name="Fahrenheit" size="20" value="0">';
+echo '</td>';
+echo '</tr>';
+echo '<tr>';
+echo '<td width="20%" align="left">Pounds:</td>';
+echo '<td width="20%" align="left">';
+echo '<input type="text" name="Pounds" size="20" value="0">';
+echo '</td>';
+echo '</tr>';
+echo '<tr>';
+echo '<td width="20%" align="left">Miles:</td>';
+echo '<td width="20%" align="left">';
+echo '<input type="text" name="Miles" size="20" value="0">';
+echo '</td>';
+echo '</tr>';
+echo '<tr border="0">';
+echo '<td align="left">';
+echo '<input type="submit" value="Calculate" name="calc">';
+echo '</td>';
+echo '</tr>';
+echo '</table>';
+echo '</form>';
+echo '</body>';
+echo '</html>';
+}
+/* Handle Page
 $F=$_POST["Fahrenheit"];
 $C=$conv->FtoC($F);
 $LB=$_POST["Pounds"];
@@ -32,5 +102,5 @@ if ($count > 0) {
 else {
     echo "No conversions were made. TIP: did you leave all values as 0?";
 }
-
+*/
 ?>
