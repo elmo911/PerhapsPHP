@@ -10,7 +10,7 @@ $_SESSION['submitted']=0;
 echo '<html>';
 echo '<body>';
 echo '<form method="POST" action="calculate.php">';
-echo '<table cellpadding="0">';
+echo '<table cellpadding="0" bordercolor="336699">';
 echo '<tr>';
 echo '<td width="20%" align="left">Celsius:</td>';
 echo '<td width="20%" align="left">';
