@@ -9,7 +9,7 @@
     echo "session = 1";
     echo "<br></br>User: ".$_POST["user"];
     echo "<br></br>Password: ".$_POST["pass"];
-    echo "Word change: ".$changeWord->toDog($count);
+    echo "<br></br>Word change: ".$changeWord->toDog($count);
   }
   else{
     $_SESSION['submitted'] = 1;
