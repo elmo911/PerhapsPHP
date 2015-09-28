@@ -1,5 +1,5 @@
 <?php
-  include 'wordChangeClass';
+  include 'wordChangeClass.php';
   session_start();
 
   $changeWord = new ChangeWord();
