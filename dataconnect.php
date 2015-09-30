@@ -6,7 +6,7 @@ echo "<body";
 try {
   $dbConn = new PDO("odbc:Driver={Microsoft Access Driver (*.mdb, *.accdb)};Dbq=jwolfe.accdb");
 } catch (PDOException $e) {
-  echo $e;
+  echo "Failed to open DB: ".$e->getMessage()."\n";
 }
 
 /*
