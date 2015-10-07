@@ -1,7 +1,7 @@
 <?php
-require 'conntodb.php';
+require ('conntodb.php');
 
-$sql = "SELECT userid, name, email FROM acsm_0e7ddff7b7d920f.user_tbl"
+$sql = "SELECT userid, name, email FROM acsm_0e7ddff7b7d920f.user_tbl";
 
 try {
   $user_tbl = $connDB->prepare($sql);
