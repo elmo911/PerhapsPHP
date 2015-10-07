@@ -5,7 +5,7 @@ $sql = "SELECT userid, name, email FROM acsm_0e7ddff7b7d920f.user_tbl";
 
 try {
   $user_tbl = $connDB->prepare($sql);
-  $connDB->execute();
+  $user_tbl->execute();
 } catch (PDOException $e) {
   die(var_dump($e));
 }
