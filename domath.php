@@ -8,4 +8,7 @@ $h = 3;
 
 echo ($func->mathstuff($x+$h) - $func->mathstuff($x));
 
+echo "<br>".($func->simple($x,$h));
+
+
  ?>
