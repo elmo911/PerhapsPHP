@@ -1,8 +1,11 @@
 <?php
 include 'garrisonsmath.php';
 
-$garrisonsmath = new GarrisonsMath();
+$func= new GarrisonsMath();
 
-echo $garrisonsmath->mathstuff(5);
+$x = 5;
+$h = 3;
+
+echo ($func->mathstuff($x+$h) - $func->mathstuff($x));
 
  ?>

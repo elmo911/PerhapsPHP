@@ -7,8 +7,7 @@
   {
 
     public function mathstuff($x){
-      $answer = ($x*$x+4*$x+5);
-      return $answer;
+      return = ($x^2 + 4*$x +5);
     }
 
   }
