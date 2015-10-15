@@ -3,16 +3,19 @@ include 'garrisonsmath.php';
 
 $func= new GarrisonsMath();
 
-$x = 5;
-$h = 3;
-
-$before = ($func->mathstuff($x+$h) - $func->mathstuff($x)) / $h;
 
 $func->printPage();
+if(!empty($_POST)){
 
-echo "before: ".$before;
+  $x = $_POST["x"];
+  $h = $_POST["h"];
 
-echo "<br>after ".($func->simple($x,$h));
+  $before = ($func->mathstuff($x+$h) - $func->mathstuff($x)) / $h;
+
+  echo "before ((x+h)^2 + 7(x+h) + 2) - (x^2 + 7x + 2): = ".$before;
+
+  echo "<br>after (2x + h  + 7)".($func->simple($x,$h));
+}
 
 
  ?>
