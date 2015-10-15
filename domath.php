@@ -6,9 +6,10 @@ $func= new GarrisonsMath();
 $x = 5;
 $h = 3;
 
-echo ($func->mathstuff($x+$h) - $func->mathstuff($x));
+$before = ($func->mathstuff($x+$h) - $func->mathstuff($x)) / $h;
+echo "before: ".$before;
 
-echo "<br>".($func->simple($x,$h));
+echo "<br>after ".($func->simple($x,$h));
 
 
  ?>
