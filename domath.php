@@ -12,9 +12,9 @@ if(!empty($_POST)){
 
   $before = ($func->mathstuff($x+$h) - $func->mathstuff($x)) / $h;
 
-  echo "before ((x+h)^2 + 7(x+h) + 2) - (x^2 + 7x + 2): = ".$before;
+  echo "before (((x+h)^2 + 7(x+h) + 2) - (x^2 + 7x + 2)) / h: = ".$before;
 
-  echo "<br>after (2x + h  + 7)".($func->simple($x,$h));
+  echo "<br>after (2x + h  + 7): = ".($func->simple($x,$h));
 }
 
 
