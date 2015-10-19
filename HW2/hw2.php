@@ -47,10 +47,13 @@ $myarray[3] = 5;</p>';
 echo '<p> moremath class function sumarray($myarray) = '.$myMath->sumarray($myarray).'</p>';
 
 echo '<h2>dGrid Class</h2>';
+
+$Grid = new dGrid();
+$Grid->printForm();
 if(!empty($_POST)){
 
 
-$Grid = new dGrid();
+
 }
 
 echo '
