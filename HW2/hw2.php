@@ -3,7 +3,7 @@
 include 'moremathfunctions.php';
 include 'mathfunction.php';
 
-$aMath = new mathfuntion();
+$aMath = new mathfunction();
 echo "<p>mathfuntion class function addthem(4, 6) = ".$aMath->addthem(4, 6)."</p>";
 
 $myarray = array();
