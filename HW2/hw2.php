@@ -1,7 +1,7 @@
 
 <?php
 include 'moremathfunctions.php';
-include 'mathfuntion.php';
+include 'mathfunction.php';
 
 $aMath = new mathfuntion();
 echo "<p>mathfuntion class function addthem(4, 6) = ".$aMath->addthem(4, 6)."</p>";
