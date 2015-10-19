@@ -52,8 +52,10 @@ $Grid = new dGrid();
 $Grid->printForm();
 if(!empty($_POST)){
 
+$Grid->rows = $_POST["rows"];
+$Grid->cols = $_POST["cols"];
 
-
+echo $Grid->drawgrid();
 }
 
 echo '

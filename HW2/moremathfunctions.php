@@ -14,11 +14,6 @@ Class dGrid {
 	public $rows;
 	public $cols;
 
-  public function dGrid($numRows, $numCols){
-    $this->rows = $numRows;
-    $this->cols = $numCols;
-  }
-
 	public function drawgrid(){
 		$grid = "<table border=1 cellpadding=0 style=border-collapse: bordercolor=#222222 width=100 id=autonumber>";
 
@@ -40,7 +35,7 @@ Class dGrid {
     <p>Input number of <strong>rows</strong> and <strong>columns</strong></p>
     <form method="POST" action="hw2.php">
     <p>Rows: <input type="text" name="rows" id="rows"></p>
-    <p>Columns: <input type="text" name="columns" id="columns"></p>
+    <p>Columns: <input type="text" name="cols" id="cols"></p>
     <input type="submit" name="submit" value="Draw">';
   }
 }
