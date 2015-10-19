@@ -5,8 +5,8 @@ Class moremath extends mathfunction {
 		$res=0;
 		for ($c=0; $c<count($myar); $c++) {
 			$res = $res + $myar[$c];
-			return($res);
 		}
+    return($res);
 	}
 }
 
