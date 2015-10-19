@@ -35,22 +35,13 @@ Class dGrid {
 		return($grid);
 	}
 
-  public function printInputPage(){
+  public function printForm(){
     echo'
-    <html>
-    <head>
-    <Title>Grid Draw</Title>
-    </head>
-    <body>
-    <h1>Draw a grid</h1>
     <p>Input number of <strong>rows</strong> and <strong>columns</strong></p>
     <form method="POST" action="hw2.php">
     <p>Rows: <input type="text" name="rows" id="rows"></p>
     <p>Columns: <input type="text" name="columns" id="columns"></p>
-    <input type="submit" name="submit" value="Draw">
-    </form>
-    </body>
-    </html>';
+    <input type="submit" name="submit" value="Draw">';
   }
 }
 ?>
