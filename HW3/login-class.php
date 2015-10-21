@@ -2,7 +2,7 @@
 
 class Login {
 
-  private function saltPassword($password)
+  public function saltPassword($password)
   {
     // yes I know about the sha1 hash
     // I didn't use it since it's no longer considered secure
