@@ -13,7 +13,7 @@ class Login {
     return $password;
   }
 
-  public function logout(){
+  public static function logout(){
     // Begin the session
     session_start();
 
