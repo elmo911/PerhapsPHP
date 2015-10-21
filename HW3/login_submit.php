@@ -6,6 +6,9 @@ if(!empty($_POST)){
   $username = $_POST["username"];
   $password = $_POST["password"];
 
+  echo $_POST["username"];
+  echo $_POST["password"];
+
   $login = new Login();
   $loginresult = $login->login($username, $password);
 
