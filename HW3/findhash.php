@@ -1,5 +1,5 @@
 <?php
-include 'login.php';
+include 'login-class.php';
 
 $password = "Password123";
 
