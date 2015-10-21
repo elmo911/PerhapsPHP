@@ -24,7 +24,7 @@ class Login {
     session_destroy();
   }
 
-  public function login($username, $password){
+  public function logintodb($username, $password){
     include 'db.php';
 
     //hash password for compare (I'd normally compare in my SQL)

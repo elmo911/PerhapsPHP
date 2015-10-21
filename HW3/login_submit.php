@@ -10,7 +10,7 @@ if(!empty($_POST)){
   echo $_POST["password"];
 
   $login = new Login();
-  $loginresult = $login->login($username, $password);
+  $loginresult = $login->logintodb($username, $password);
 
   if(array_key_exists("error",$loginresult)){
     echo $loginresult['error'];
