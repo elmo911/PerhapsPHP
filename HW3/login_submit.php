@@ -3,7 +3,7 @@ include "login-class.php";
 session_start();
 if(key_exists("user", $_SESSION)){
   $user = $_SESSION["user"];
-  echo "<h2> Error: ".$loginresult['fname']." ".$loginresult['lname']." already logged in</h2>";
+  echo "<h2> Error: ".$user['fname']." ".$user['lname']." already logged in</h2>";
 }
 
 else if(!empty($_POST)){
