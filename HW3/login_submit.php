@@ -1,7 +1,12 @@
 <?php
 include "login-class.php";
 session_start();
-if(!empty($_POST)){
+if(key_exists("user", $_SESSION)){
+  $user = $_SESSION["user"];
+  echo "<h2> Error: ".$loginresult['fname']." ".$loginresult['lname']." already logged in</h2>";
+}
+
+else if(!empty($_POST)){
 
   $username = $_POST["username"];
   $password = $_POST["password"];
@@ -17,7 +22,13 @@ if(!empty($_POST)){
   }
   else{
     $_SESSION['user'] = $loginresult;
+    echo "<h2>Welcome ".$loginresult['fname']." ".$loginresult['lname']."</h2>";
   }
+}
+
+else{
+
+  echo "<h2>Please fill in form</h2>";
 }
 
 
