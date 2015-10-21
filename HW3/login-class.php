@@ -25,7 +25,7 @@ class Login {
   }
 
   public function login($username, $password){
-    include 'db.php'
+    include 'db.php';
 
     //hash password for compare (I'd normally compare in my SQL)
     $hashed_pw = $this->saltPassword($password);
