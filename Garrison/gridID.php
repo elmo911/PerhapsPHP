@@ -10,10 +10,10 @@
   		$grid = "<table border=1 cellpadding=0 style=border-collapse: bordercolor=#222222 width=100 id=autonumber>";
 
   		$c=1;
-  		while($c<=$this->y){
+  		while($c<=$y){
   			$grid = $grid . "<tr>";
   			$d=1;
-  			while($d<=$this->x){
+  			while($d<=$x){
   				$grid = $grid . '<td align="left">' . $c . "X" . $d . "</td>";
   				$d++;
   			}
