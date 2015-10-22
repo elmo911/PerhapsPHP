@@ -18,8 +18,7 @@
       $y = 2;
       for ($x; $x <= $y; $x += 1) {
         $y = $par/2 - $x;
-        echo "Par: ".(2*$x + 2*$y);
-        $this->echoArea($x,$y);
+        $this->echoParameter($x, $y);
         $this->drawRec($x, $y);
       }
     }
@@ -27,6 +26,11 @@
     public function echoArea($x, $y){
       $area = $x * $y;
       echo "<p>Area is: ".$area."</p>";
+    }
+
+    public function echoParameter($x, $y){
+      $par = (2*$x + 2*$y);
+      echo "<p>Parameter is: ".$par."</p>";
     }
 
     public function drawRec($x, $y){

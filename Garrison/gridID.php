@@ -11,10 +11,10 @@
 
   		$c=1;
   		while($c<=$y){
-  			$grid = $grid . "<tr>";
+  			$grid = $grid . "<tr border=1>";
   			$d=1;
   			while($d<=$x){
-  				$grid = $grid . '<td align="left">'." </td>";
+  				$grid = $grid . '<td border=1>'." </td>";
   				$d++;
   			}
   			$c++;
