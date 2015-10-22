@@ -4,7 +4,7 @@ include 'garrisonsmath.php';
 $func= new GarrisonsMath();
 
 
-$func->printPage();
+$func->printDoMathPage();
 if(!empty($_POST)){
 
   $x = $_POST["x"];

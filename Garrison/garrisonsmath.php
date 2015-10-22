@@ -5,20 +5,36 @@
    */
   class GarrisonsMath
   {
-
     public function mathstuff($x){
       return (($x*$x) + (7*$x) + 2);
     }
 
     public function simple($x, $h){
+      $this->echoArea($x,$y);
       return ((2*$x) + $h  + 7);
     }
-    
+
+    public function guessRec($par){
+      $x = 1;
+      $y = 2;
+      for ($x; $x <= $y; $x += 1) {
+        $y = $par/2 - $x;
+        echo "Par: ".(2*$x + 2*$y);
+        $this->echoArea($x,$y);
+        $this->drawRec($x, $y);
+      }
+    }
+
+    public function echoArea($x, $y){
+      $area = $x * $y;
+      echo "<p>Area is: ".$area."</p>";
+    }
+
     public function drawRec($x, $y){
       include "gridID.php";
       echo Grid::drawgrid($x,$y);
     }
-    public function printPage(){
+    public function printDoMathPage(){
       echo'
       <html>
       <head>
