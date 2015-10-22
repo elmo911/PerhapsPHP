@@ -10,7 +10,6 @@
     }
 
     public function simple($x, $h){
-      $this->echoArea($x,$y);
       return ((2*$x) + $h  + 7);
     }
 
@@ -32,6 +31,7 @@
 
     public function drawRec($x, $y){
       include "gridID.php";
+      $this->echoArea($x,$y);
       echo Grid::drawgrid($x,$y);
     }
     public function printDoMathPage(){

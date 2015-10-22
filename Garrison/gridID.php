@@ -14,7 +14,7 @@
   			$grid = $grid . "<tr>";
   			$d=1;
   			while($d<=$x){
-  				$grid = $grid . '<td align="left">' . $c . "X" . $d . "</td>";
+  				$grid = $grid . '<td align="left">'." </td>";
   				$d++;
   			}
   			$c++;
