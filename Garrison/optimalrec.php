@@ -10,7 +10,7 @@
   }
   $gmath->printGuessDrawForm();
   if(key_exists("parameter_g",$_POST)){
-    $gmath->guessRec($_POST["x"]);
+    $gmath->guessRec($_POST["parameter_g"]);
   }
   $gmath->printOptimizedForm();
   if(key_exists("parameter",$_POST)){
