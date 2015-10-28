@@ -12,7 +12,7 @@
   $summation = 0;
   for($i=0; $i < $N; $i++){
     $num = ($mean - $sample[$i]);
-    $num = pow($num, 2);
+    $num = $num * $num;
     $summation += $num;
   }
 
