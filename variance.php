@@ -17,6 +17,9 @@
   $result = (1/$N) * $summation;
   $corResult = (1/($N-1)) * $summation;
 
-  echo $result "<br>";
-  echo $corResult;
+  echo "Sample: ".$sample."<br>";
+  echo "Mean X: ".$mean."<br>";
+  echo "N: ".$N."<br>";
+  echo "Result: ".$result."<br>";
+  echo "Result: ".$corResult;
  ?>
