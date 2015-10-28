@@ -13,7 +13,7 @@
   for($i=0; $i < $N; $i++){
     $num = ($mean - $sample[$i]);
     $num = pow($num, 2);
-    $summation += ($mean - $sample[$i]);
+    $summation += $num;
   }
 
   $result = (1/$N) * $summation;
