@@ -10,7 +10,7 @@
   $sample4 = array(1, 0, 1, 0, 1, 0, 1, 1);
   $population = array($sample1, $sample2, $sample3, $sample4);
 
-  echo 'Samples:<br>
+  echo '<br><br>Samples:<br>
     Sample 1 = 1, 1, 0, 1, 1, 1, 0, 0<br>
     Sample 2 = 0, 1, 0, 1, 0, 1, 0, 1<br>
     Sample 3 = 1, 0, 1, 1, 0, 1, 0, 0<br>
