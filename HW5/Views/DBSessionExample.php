@@ -52,10 +52,10 @@
   PageBuilder::header($mediumHeader);
 
   $varNameInput["name"] = "addVarName";
-  $varNameInput["label"] = "VarName";
+  $varNameInput["label"] = "varName";
   $varNameInput["required"] = true;
   $varValueInput["name"] = "addVarValue";
-  $varValueInput["label"] = "VarValue";
+  $varValueInput["label"] = "varValue";
   $varValueInput["required"] = true;
   $inputs = array($varNameInput, $varValueInput);
   PageBuilder::formTextInput($inputs);
@@ -68,7 +68,7 @@
   $mediumHeader["text"] = "Update Session Value:";
   PageBuilder::header($mediumHeader);
 
-  $varNameInput["name"] = "updateVarName";
+  $varNameInput["name"] = "updatevarName";
   $varValueInput["name"] = "updateVarValue";
   $inputs = array($varNameInput, $varValueInput);
   PageBuilder::formTextInput($inputs);

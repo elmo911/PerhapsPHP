@@ -30,7 +30,7 @@ class PageBuilder
       <a href="'.GlobalConst::webAddress().'/HW2/hw2.php">Homework 2</a>
       <a href="'.GlobalConst::webAddress().'/HW3/login.html">Homework 3</a>
       <a href="'.GlobalConst::webAddress().'/HW4/variance.html">Homework 4</a>
-      <a href="'.GlobalConst::webAddress().'/HW5/DBSessionExample.php">Homework 5</a>
+      <a href="'.GlobalConst::webAddress().'/HW5/Views/DBSessionExample.php">Homework 5</a>
       </div>';
   }
 
