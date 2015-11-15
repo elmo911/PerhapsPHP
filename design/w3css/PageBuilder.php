@@ -1,5 +1,5 @@
 <?php
-include 'global-const.php';
+include $_SERVER['DOCUMENT_ROOT'].'\global-const.php';
 /*
  A page style class based on W3.class
  See http://www.w3schools.com/w3css/default.asp
