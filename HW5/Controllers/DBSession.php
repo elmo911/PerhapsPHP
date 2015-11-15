@@ -12,6 +12,7 @@ function __construct($sesName) {
 
 public function getSessionVar(){
   include $_SERVER['DOCUMENT_ROOT'].'\HW5\Controllers\DatabaseConnection.php';
+  include $_SERVER['DOCUMENT_ROOT'].'\HW5\Models\SessionVar.php';
   $sessionVarList = [];
 
   $sql_select = "SELECT sessionName, varName, varValue, LastUpdate
@@ -36,7 +37,6 @@ public function getSessionVar(){
 
 public function insertvar($varName, $varValue){
   include $_SERVER['DOCUMENT_ROOT'].'\HW5\Controllers\DatabaseConnection.php';
-  include $_SERVER['DOCUMENT_ROOT'].'\HW5\Models\SessionVar.php';
   $date = date("Y-m-d H:i:s");
 	$sql_insert = "Insert into sessionvar Values('$this->sessionName', '$varName', '$varValue', '$date')";
 	try
