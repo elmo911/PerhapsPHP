@@ -39,7 +39,7 @@ public function insertvar($varName, $varValue){
   include $_SERVER['DOCUMENT_ROOT'].'\HW5\Controllers\DatabaseConnection.php';
   include $_SERVER['DOCUMENT_ROOT'].'\HW5\Models\SessionVar.php';
   $date = date("Y-m-d H:i:s");
-	$sql_insert = "Insert into sessionvar Values(':curSessionName', ':varName', ':varValue', '".$date."')";
+	$sql_insert = "Insert into sessionvar Values(':curSessionName', ':varName', ':varValue', '$date')";
 	try
 	{
     $stmt = $dbConn->prepare($sql_insert);
