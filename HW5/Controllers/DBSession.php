@@ -1,6 +1,6 @@
 <?php
-include 'HW5/Controllers/DatabaseConnection.php';
-include 'HW5/Models/SessionVar.php';
+include $_SERVER['DOCUMENT_ROOT'].'HW5/Controllers/DatabaseConnection.php';
+include $_SERVER['DOCUMENT_ROOT'].'HW5/Models/SessionVar.php';
 Class DBSession {
 
 public $sessionName = "";
