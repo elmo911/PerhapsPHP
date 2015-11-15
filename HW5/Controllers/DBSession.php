@@ -2,7 +2,7 @@
 Class DBSession {
 
 public $sessionName = "";
-public $sessionVars = [];
+public $sessionVars = array();
 
 function __construct($sesName) {
   $this->sessionName = $sesName;
@@ -11,7 +11,7 @@ function __construct($sesName) {
 
 public function getSessionVar(){
   include $_SERVER['DOCUMENT_ROOT'].'\HW5\Controllers\DatabaseConnection.php';
-  $sessionVars = [];
+  $sessionVarList = [];
 
   $sql_select = "SELECT sessionName, varName, varValue, LastUpdate
   FROM sessionvar
@@ -27,10 +27,10 @@ public function getSessionVar(){
         $sessionvar->varName = $var['varName'];
         $sessionvar->varValue = $var['varValue'];
         $sessionvar->LastUpdate = $var['LastUpdate'];
-        $sessionVars[] = $sessionvar;
+        $sessionVarList[] = $sessionvar;
     }
   }
-  $this->$sessionVars = $sessionVars;
+  $this->$sessionVars = $sessionVarList;
   return $sessionVars;
 }
 
@@ -38,11 +38,13 @@ public function insertvar($varName, $varValue){
   include $_SERVER['DOCUMENT_ROOT'].'\HW5\Controllers\DatabaseConnection.php';
   include $_SERVER['DOCUMENT_ROOT'].'\HW5\Models\SessionVar.php';
   date_default_timezone_set('America/Chicago');
-	$sql_insert = "Insert into sessionvar Values(:sessionName, :varName, :varValue ,getdate())";
+	$sql_insert = "Insert into sessionvar Values(:curSessionName, :varName, :varValue , ".getdate().")";
 	try
 	{
     $stmt = $dbConn->prepare($sql_insert);
     $stmt->bindParam(':curSessionName', $this->sessionName, PDO::PARAM_STR);
+    $stmt->bindParam(':varName', $varName, PDO::PARAM_STR);
+    $stmt->bindParam(':varValue', $varValue, PDO::PARAM_STR);
     $stmt->execute();
     $this->getSessionVar();
     echo "<p>Insert Success.</p>";
@@ -67,7 +69,7 @@ public function updateVal($varName, $varVal) {
 	date_default_timezone_set('America/Chicago');
 
   $sql_update = "UPDATE sessionvar
-  SET varValue= :varVal, LastUpdate = getdate()
+  SET varValue= :varVal, LastUpdate = ".getdate()."
   WHERE sessionName= :curSessionName AND varName = :varName";
 
   try
