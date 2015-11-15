@@ -101,7 +101,7 @@ public function deleteVar($varName){
 	}
 }
 
-  public printVars(){
+  public function printVars(){
     $varList = $this->getSessionVar();
     if(count($varList)>0){
       foreach($varList as $var) {
