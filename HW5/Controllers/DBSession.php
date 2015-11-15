@@ -2,7 +2,7 @@
 Class DBSession {
 
 public $sessionName = "";
-public $sessionVars;
+public $sessionVars = [];
 
 function __construct($sesName) {
   $this->sessionName = $sesName;
@@ -37,7 +37,7 @@ public function getSessionVar(){
 public function insertvar($varName, $varValue){
   include $_SERVER['DOCUMENT_ROOT'].'\HW5\Controllers\DatabaseConnection.php';
   include $_SERVER['DOCUMENT_ROOT'].'\HW5\Models\SessionVar.php';
-  date_default_timezone_set('American/Chicago');
+  date_default_timezone_set('America/Chicago');
 	$sql_insert = "Insert into sessionvar Values(:sessionName, :varName, :varValue ,getdate())";
 	try
 	{
@@ -64,7 +64,7 @@ public function varValue($varName){
 
 public function updateVal($varName, $varVal) {
   include $_SERVER['DOCUMENT_ROOT'].'\HW5\Controllers\DatabaseConnection.php';
-	date_default_timezone_set('American/Chicago');
+	date_default_timezone_set('America/Chicago');
 
   $sql_update = "UPDATE sessionvar
   SET varValue= :varVal, LastUpdate = getdate()
