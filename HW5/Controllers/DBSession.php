@@ -2,7 +2,7 @@
 Class DBSession {
 
 public $sessionName = "";
-public $sessionVars = array();
+public $sessionVars;
 
 function __construct($sesName) {
   $this->sessionName = $sesName;
@@ -30,7 +30,7 @@ public function getSessionVar(){
         $sessionVarList[] = $sessionvar;
     }
   }
-  $this->$sessionVars = $sessionVarList;
+  $this->sessionVars = $sessionVarList;
   return $sessionVars;
 }
 
