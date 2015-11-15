@@ -16,9 +16,8 @@ public function getSessionVar(){
 
   $sql_select = "SELECT sessionName, varName, varValue, LastUpdate
   FROM sessionvar
-  WHERE sessionName = :curSessionName";
+  WHERE sessionName = '$this->sessionName'";
   $stmt = $dbConn->prepare($sql_select);
-  $stmt->bindParam(':curSessionName', $this->sessionName, PDO::PARAM_STR);
   $stmt->execute();
   $returnedList = $stmt->fetchAll();
 
@@ -66,15 +65,12 @@ public function updateVal($varName, $varVal) {
   include $_SERVER['DOCUMENT_ROOT'].'\HW5\Controllers\DatabaseConnection.php';
 
   $sql_update = "UPDATE sessionvar
-  SET varValue= :varVal, LastUpdate = ".date('Y-m-d H:i:s')."
-  WHERE sessionName= :curSessionName AND varName = :varName";
+  SET varValue= '$varName', LastUpdate = ".date('Y-m-d H:i:s')."
+  WHERE sessionName= '$this->sessionName' AND varName = '$varVal'";
 
   try
 	{
     $stmt = $dbConn->prepare($sql_update);
-    $stmt->bindParam(':varVal', $varVal, PDO::PARAM_STR);
-    $stmt->bindParam(':curSessionName', $this->sessionName, PDO::PARAM_STR);
-    $stmt->bindParam(':varName', $varName, PDO::PARAM_STR);
     $stmt->execute();
     $this->getSessionVar();
     echo "<p>Update Success.</p>";
@@ -87,13 +83,11 @@ public function updateVal($varName, $varVal) {
 public function deleteVar($varName){
   include $_SERVER['DOCUMENT_ROOT'].'\HW5\Controllers\DatabaseConnection.php';
 	$sql_delete = "DELETE FROM sessionvar
-  WHERE sessionName = :curSessionName AND varName = :varName";
+  WHERE sessionName = '$this->sessionName' AND varName = '$varName'";
 
   try
 	{
     $stmt = $dbConn->prepare($sql_delete);
-    $stmt->bindParam(':curSessionName', $this->sessionName, PDO::PARAM_STR);
-    $stmt->bindParam(':varName', $varName, PDO::PARAM_STR);
     $stmt->execute();
     $this->getSessionVar();
     echo "<p>Delete Success.</p>";
@@ -108,7 +102,7 @@ public function deleteVar($varName){
     if(count($varList)>0){
       foreach($varList as $var) {
         echo '
-        <p> '.$var->toString().'</p>';
+        <p> '.nl2br($var->toString()).'</p>';
       }
     }
     else {

@@ -17,11 +17,11 @@ class SessionVar
   }
 
   function toString(){
-    $str = '
-    sessionName = '.$this->sessionName.'
-    varName = '.$this->varName.'
-    varValue = '.$this->varValue.'
-    LastUpdate = '.$this->LastUpdate;
+    $str = "\n
+    sessionName = ".$this->sessionName."\n
+    varName = ".$this->varName."\n
+    varValue = ".$this->varValue."\n
+    LastUpdate = ".$this->LastUpdate;
     return $str;
   }
 
