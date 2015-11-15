@@ -17,7 +17,7 @@ public function getSessionVar(){
   $sql_select = "SELECT sessionName, varName, varValue, LastUpdate
   FROM sessionvar
   WHERE sessionName = :curSessionName";
-  $stmt = $conn->prepare($sql_select);
+  $stmt = $dbConn->prepare($sql_select);
   $stmt->bindParam(':curSessionName', $this->sessionName, PDO::PARAM_STR);
   $stmt->execute();
   $returnedList = $stmt->fetchAll();
@@ -40,7 +40,7 @@ public function insertvar($varName, $varValue){
 	$sql_insert = "Insert into sessionvar Values(:sessionName, :varName, :varValue ,getdate())";
 	try
 	{
-    $stmt = $conn->prepare($sql_insert);
+    $stmt = $dbConn->prepare($sql_insert);
     $stmt->bindParam(':curSessionName', $this->sessionName, PDO::PARAM_STR);
     $stmt->execute();
     $this->getSessionVar();
@@ -70,7 +70,7 @@ public function updateVal($varName, $varVal) {
 
   try
 	{
-    $stmt = $conn->prepare($sql_update);
+    $stmt = $dbConn->prepare($sql_update);
     $stmt->bindParam(':varVal', $varVal, PDO::PARAM_STR);
     $stmt->bindParam(':curSessionName', $this->sessionName, PDO::PARAM_STR);
     $stmt->bindParam(':varName', $varName, PDO::PARAM_STR);
@@ -89,7 +89,7 @@ public function deleteVar($varName){
 
   try
 	{
-    $stmt = $conn->prepare($sql_delete);
+    $stmt = $dbConn->prepare($sql_delete);
     $stmt->bindParam(':curSessionName', $this->sessionName, PDO::PARAM_STR);
     $stmt->bindParam(':varName', $varName, PDO::PARAM_STR);
     $stmt->execute();
