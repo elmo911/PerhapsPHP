@@ -63,10 +63,10 @@ public function varValue($varName){
 
 public function updateVal($varName, $varVal) {
   include $_SERVER['DOCUMENT_ROOT'].'\HW5\Controllers\DatabaseConnection.php';
-
+  $date = date('Y-m-d H:i:s');
   $sql_update = "UPDATE sessionvar
-  SET varValue= '$varName', LastUpdate = ".date('Y-m-d H:i:s')."
-  WHERE sessionName= '$this->sessionName' AND varName = '$varVal'";
+  SET varValue= '$varVal', LastUpdate = '$date'
+  WHERE sessionName= '$this->sessionName' AND varName = '$varName'";
 
   try
 	{
@@ -82,8 +82,7 @@ public function updateVal($varName, $varVal) {
 
 public function deleteVar($varName){
   include $_SERVER['DOCUMENT_ROOT'].'\HW5\Controllers\DatabaseConnection.php';
-	$sql_delete = "DELETE FROM sessionvar
-  WHERE sessionName = '$this->sessionName' AND varName = '$varName'";
+	$sql_delete = "DELETE FROM 'sessionvar' WHERE 'sessionName'='$this->sessionName' and 'varName'='$varName'";
 
   try
 	{
