@@ -101,7 +101,7 @@ public function deleteVar($varName){
     if(count($varList)>0){
       foreach($varList as $var) {
         echo '
-        <h2> '.nl2br($var->toString()).'</h2>';
+        <p> '.nl2br($var->toString()).'</p>';
       }
     }
     else {
