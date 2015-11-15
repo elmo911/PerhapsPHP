@@ -39,13 +39,10 @@ public function insertvar($varName, $varValue){
   include $_SERVER['DOCUMENT_ROOT'].'\HW5\Controllers\DatabaseConnection.php';
   include $_SERVER['DOCUMENT_ROOT'].'\HW5\Models\SessionVar.php';
   $date = date("Y-m-d H:i:s");
-	$sql_insert = "Insert into sessionvar Values(':curSessionName', ':varName', ':varValue', '$date')";
+	$sql_insert = "Insert into sessionvar Values('$this->sessionName', '$varName', '$varValue', '$date')";
 	try
 	{
     $stmt = $dbConn->prepare($sql_insert);
-    $stmt->bindParam(":curSessionName", $this->sessionName, PDO::PARAM_STR);
-    $stmt->bindParam(":varName", $varName, PDO::PARAM_STR);
-    $stmt->bindParam(":varValue", $varValue, PDO::PARAM_STR);
     $stmt->execute();
     $this->getSessionVar();
     echo "<p>Insert Success.</p>";
