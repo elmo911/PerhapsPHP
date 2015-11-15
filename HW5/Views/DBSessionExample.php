@@ -9,7 +9,7 @@
   PageBuilder::openForm($form_options);
 
   $mediumHeader["size"] = "2";
-  $mediumHeader["text"] = "Add Session Values:"
+  $mediumHeader["text"] = "Add Session Values:";
   PageBuilder::header($mediumHeader);
 
   $varNameInput["name"] = "addVarName";
@@ -25,7 +25,7 @@
   //Update Session Values Form
   PageBuilder::openForm($form_options);
 
-  $mediumHeader["text"] = "Update Session Value:"
+  $mediumHeader["text"] = "Update Session Value:";
   PageBuilder::header($mediumHeader);
 
   $varNameInput["name"] = "updateVarName";
@@ -37,7 +37,7 @@
   //Delete Session Values Form
   PageBuilder::openForm($form_options);
 
-  $mediumHeader["text"] = "Delete Session Var:"
+  $mediumHeader["text"] = "Delete Session Var:";
   PageBuilder::header($mediumHeader);
 
   $varNameInput["name"] = "delVarName";
