@@ -3,11 +3,17 @@
   include $_SERVER['DOCUMENT_ROOT'].'\HW5\Controllers\DBSession.php';
 
   PageBuilder::openPage("Homework 5");
-  $form_options["action"] = "DBSessionExample.php";
-  $form_options["button_text"] = "Add Variable";
 
   //POST Handle
-  $Session = new DBSession("My Session");
+  $SessionDBName = "My Session";
+  if(!empty($_POST) && isset($_POST['changeDBSession'])){
+    $_SESSION['DBSessionName'] = $_POST['changeDBSession'];
+  }
+  if (isset($_SESSION['DBSessionName']))
+  {
+    $SessionDBName = $_SESSION['DBSessionName'];
+  }
+  $Session = new DBSession($SessionDBName);
   if(!empty($_POST)){
     if(isset($_POST['addVarName'])){
       $Session->insertvar($_POST['addVarName'], $_POST['addVarValue']);
@@ -20,10 +26,28 @@
     }
   }
 
-  //Add Session Values Form
+  $form_options["action"] = "DBSessionExample.php";
+
+
+  //Change Session Form
+  $form_options["button_text"] = "Change Session";
   PageBuilder::openForm($form_options);
 
   $mediumHeader["size"] = "3";
+  $mediumHeader["text"] = "Change Session Name:";
+  PageBuilder::header($mediumHeader);
+
+  $varSessionInput["name"] = "changeDBSession";
+  $varSessionInput["label"] = "sessionName";
+  $varSessionInput["required"] = true;
+  $inputs = array($varSessionInput);
+  PageBuilder::formTextInput($inputs);
+  PageBuilder::closeForm($form_options);
+
+  //Add Session Values Form
+  $form_options["button_text"] = "Add Variable";
+  PageBuilder::openForm($form_options);
+
   $mediumHeader["text"] = "Add Session Values:";
   PageBuilder::header($mediumHeader);
 

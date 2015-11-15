@@ -44,10 +44,10 @@ public function insertvar($varName, $varValue){
     $stmt = $dbConn->prepare($sql_insert);
     $stmt->execute();
     $this->getSessionVar();
-    echo "<p>Insert Success.</p>";
+    echo "<h2>Insert Success.</h2>";
 	}
 	catch(Exeception $e) {
-		echo "<p>Insert Failed.</p>";
+		echo "<h2>Insert Failed.</h2>";
 	}
 }
 
@@ -73,10 +73,10 @@ public function updateVal($varName, $varVal) {
     $stmt = $dbConn->prepare($sql_update);
     $stmt->execute();
     $this->getSessionVar();
-    echo "<p>Update Success.</p>";
+    echo "<h2>Update Success.</h2>";
 	}
 	catch(Exeception $e) {
-		echo "<p>Update Failed.</p>";
+		echo "<h2>Update Failed.</h2>";
 	}
 }
 
@@ -89,10 +89,10 @@ public function deleteVar($varName){
     $stmt = $dbConn->prepare($sql_delete);
     $stmt->execute();
     $this->getSessionVar();
-    echo "<p>Delete Success.</p>";
+    echo "<h2>Delete Success.</h2>";
 	}
 	catch(Exeception $e) {
-		echo "<p>Delete Failed.</p>";
+		echo "<h2>Delete Failed.</h2>";
 	}
 }
 
@@ -101,12 +101,12 @@ public function deleteVar($varName){
     if(count($varList)>0){
       foreach($varList as $var) {
         echo '
-        <p> '.nl2br($var->toString()).'</p>';
+        <h2> '.nl2br($var->toString()).'</h2>';
       }
     }
     else {
       echo '
-      <p>No session variables set</p>';
+      <h2>No session variables set</h2>';
     }
   }
 }
