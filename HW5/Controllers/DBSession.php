@@ -31,7 +31,7 @@ public function getSessionVar(){
     }
   }
   $this->sessionVars = $sessionVarList;
-  return $sessionVars;
+  return $sessionVarList;
 }
 
 public function insertvar($varName, $varValue){
