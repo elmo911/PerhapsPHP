@@ -63,7 +63,6 @@
   }
 
   //Show current variables
-  $largeHeader["size"] = "1";
   $largeHeader["text"] = "Session Name: ".$Session->sessionName;
   PageBuilder::header($largeHeader);
 

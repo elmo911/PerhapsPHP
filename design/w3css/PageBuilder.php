@@ -45,6 +45,9 @@ class PageBuilder
     if (array_key_exists("text", $header_options)) {
       $text = $header_options["text"];
     }
+    if (array_key_exists("size", $header_options)) {
+      $size= $header_options["size"];
+    }
 
     echo '
     <header class="w3-container '.$color.'">
