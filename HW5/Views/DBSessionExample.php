@@ -6,6 +6,20 @@
   $form_options["action"] = "DBSessionExample.php";
   $form_options["button_text"] = "Add Variable";
 
+  //POST Handle
+  $Session = new DBSession("My Session");
+  if(!empty($_POST)){
+    if(isset($_POST['addVarName'])){
+      $Session->insertvar($_POST['addVarName'], $_POST['addVarValue']);
+    }
+    else if(isset($_POST['updateVarName'])){
+      $Session->updateVal($_POST['updateVarName'], $_POST['updateVarValue']);
+    }
+    else if(isset($_POST['delVarName'])){
+      $Session->deleteVar($_POST['delVarName']);
+    }
+  }
+
   //Add Session Values Form
   PageBuilder::openForm($form_options);
 
@@ -48,19 +62,7 @@
   PageBuilder::formTextInput($inputs);
   PageBuilder::closeForm($form_options);
 
-  //POST Handle
-  $Session = new DBSession("My Session");
-  if(!empty($_POST)){
-    if(isset($_POST['addVarName'])){
-      $Session->insertvar($_POST['addVarName'], $_POST['addVarValue']);
-    }
-    else if(isset($_POST['updateVarName'])){
-      $Session->updateVal($_POST['updateVarName'], $_POST['updateVarValue']);
-    }
-    else if(isset($_POST['deleteVarName'])){
-      $Session->deleteVar($_POST['deleteVarName']);
-    }
-  }
+
 
   //Show current variables
   $largeHeader["text"] = "Session Name: ".$Session->sessionName;
