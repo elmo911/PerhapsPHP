@@ -4,6 +4,7 @@
 
   PageBuilder::openPage("Homework 5");
   $form_options["action"] = "DBSessionExample.php";
+  $form_options["button_text"] = "Add Variable";
 
   //Add Session Values Form
   PageBuilder::openForm($form_options);
@@ -20,9 +21,10 @@
   $varValueInput["required"] = true;
   $inputs = array($varNameInput, $varValueInput);
   PageBuilder::formTextInput($inputs);
-  PageBuilder::closeForm();
+  PageBuilder::closeForm($form_options);
 
   //Update Session Values Form
+  $form_options["button_text"] = "Update Session Variable";
   PageBuilder::openForm($form_options);
 
   $mediumHeader["text"] = "Update Session Value:";
@@ -32,9 +34,10 @@
   $varValueInput["name"] = "updateVarValue";
   $inputs = array($varNameInput, $varValueInput);
   PageBuilder::formTextInput($inputs);
-  PageBuilder::closeForm();
+  PageBuilder::closeForm($form_options);
 
   //Delete Session Values Form
+  $form_options["button_text"] = "Delete Variable";
   PageBuilder::openForm($form_options);
 
   $mediumHeader["text"] = "Delete Session Var:";
@@ -43,7 +46,7 @@
   $varNameInput["name"] = "delVarName";
   $inputs = array($varNameInput);
   PageBuilder::formTextInput($inputs);
-  PageBuilder::closeForm();
+  PageBuilder::closeForm($form_options);
 
   //POST Handle
   $Session = new DBSession("My Session");

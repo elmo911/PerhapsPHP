@@ -74,13 +74,17 @@ class PageBuilder
 
   public static function closeForm($form_options){
     $color = 'w3-red';
+    $button_text = 'Submit';
 
     if (array_key_exists("color", $form_options)) {
       $color = $form_options["color"];
     }
+    if (array_key_exists("button_text", $form_options)) {
+      $button_text = $form_options["button_text"];
+    }
 
     echo '
-    <input class="w3-btn '.$color.'" type="submit" name="submit" value = "Submit">
+    <input class="w3-btn '.$color.'" type="submit" name="submit" value = "'.$button_text.'">
     </form>
     ';
   }

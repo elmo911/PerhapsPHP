@@ -1,4 +1,4 @@
-<<?php
+<?php
 
 /**
  * Session Variable Model for DBSession
