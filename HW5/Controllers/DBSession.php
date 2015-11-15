@@ -1,5 +1,4 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT'].'\HW5\Controllers\DatabaseConnection.php';
 include $_SERVER['DOCUMENT_ROOT'].'\HW5\Models\SessionVar.php';
 Class DBSession {
 
@@ -12,6 +11,7 @@ function __construct($sesName) {
 }
 
 public function getSessionVar(){
+  include $_SERVER['DOCUMENT_ROOT'].'\HW5\Controllers\DatabaseConnection.php';
   $sessionVars = [];
 
   $sql_select = "SELECT sessionName, varName, varValue, LastUpdate
