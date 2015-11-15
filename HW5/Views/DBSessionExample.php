@@ -9,7 +9,7 @@
   //Add Session Values Form
   PageBuilder::openForm($form_options);
 
-  $mediumHeader["size"] = "2";
+  $mediumHeader["size"] = "3";
   $mediumHeader["text"] = "Add Session Values:";
   PageBuilder::header($mediumHeader);
 

@@ -1,5 +1,4 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT'].'\HW5\Models\SessionVar.php';
 Class DBSession {
 
 public $sessionName = "";
@@ -36,7 +35,9 @@ public function getSessionVar(){
 }
 
 public function insertvar($varName, $varValue){
-	date_default_timezone_set('American/Chicago');
+  include $_SERVER['DOCUMENT_ROOT'].'\HW5\Controllers\DatabaseConnection.php';
+  include $_SERVER['DOCUMENT_ROOT'].'\HW5\Models\SessionVar.php';
+  date_default_timezone_set('American/Chicago');
 	$sql_insert = "Insert into sessionvar Values(:sessionName, :varName, :varValue ,getdate())";
 	try
 	{
@@ -62,6 +63,7 @@ public function varValue($varName){
 }
 
 public function updateVal($varName, $varVal) {
+  include $_SERVER['DOCUMENT_ROOT'].'\HW5\Controllers\DatabaseConnection.php';
 	date_default_timezone_set('American/Chicago');
 
   $sql_update = "UPDATE sessionvar
@@ -84,6 +86,7 @@ public function updateVal($varName, $varVal) {
 }
 
 public function deleteVar($varName){
+  include $_SERVER['DOCUMENT_ROOT'].'\HW5\Controllers\DatabaseConnection.php';
 	$sql_delete = "DELETE FROM sessionvar
   WHERE sessionName = :curSessionName AND varName = :varName";
 
