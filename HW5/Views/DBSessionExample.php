@@ -1,6 +1,6 @@
 <?php
-  include $_SERVER['DOCUMENT_ROOT'].'design/w3css/PageBuilder.php';
-  include $_SERVER['DOCUMENT_ROOT'].'HW5/Controllers/DBSession.php';
+  include $_SERVER['DOCUMENT_ROOT'].'\design\w3css\PageBuilder.php';
+  include $_SERVER['DOCUMENT_ROOT'].'\HW5\Controllers\DBSession.php';
 
   PageBuilder::openPage("Homework 5");
   $form_options["action"] = "DBSessionExample.php";
