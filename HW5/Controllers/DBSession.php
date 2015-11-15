@@ -5,6 +5,7 @@ public $sessionName = "";
 public $sessionVars;
 
 function __construct($sesName) {
+  date_default_timezone_set('America/Chicago');
   $this->sessionName = $sesName;
   $this->getSessionVar();
 }
@@ -37,8 +38,7 @@ public function getSessionVar(){
 public function insertvar($varName, $varValue){
   include $_SERVER['DOCUMENT_ROOT'].'\HW5\Controllers\DatabaseConnection.php';
   include $_SERVER['DOCUMENT_ROOT'].'\HW5\Models\SessionVar.php';
-  date_default_timezone_set('America/Chicago');
-	$sql_insert = "Insert into sessionvar Values(:curSessionName, :varName, :varValue , ".getdate().")";
+	$sql_insert = "Insert into sessionvar Values(:curSessionName, :varName, :varValue , ".date('Y-m-d H:i:s').")";
 	try
 	{
     $stmt = $dbConn->prepare($sql_insert);
@@ -66,10 +66,9 @@ public function varValue($varName){
 
 public function updateVal($varName, $varVal) {
   include $_SERVER['DOCUMENT_ROOT'].'\HW5\Controllers\DatabaseConnection.php';
-	date_default_timezone_set('America/Chicago');
 
   $sql_update = "UPDATE sessionvar
-  SET varValue= :varVal, LastUpdate = ".getdate()."
+  SET varValue= :varVal, LastUpdate = ".date('Y-m-d H:i:s')."
   WHERE sessionName= :curSessionName AND varName = :varName";
 
   try
