@@ -4,13 +4,20 @@
   <head>
     <script>
       function answer(){
-        document.getElementsByID("question1").innerHTML = "Deer";
+        if(document.getElementById("ansbutton").innerHTML == "Try Again"){
+          document.getElementById("question1").innerHTML = "What hunting season opens for adults on Saturday?";
+          document.getElementById("ansbutton").innerHTML = "Answer";
+        }
+        else {
+          document.getElementById("question1").innerHTML = "Deer";
+          document.getElementById("ansbutton").innerHTML = "Try Again";
+        }
       }
     </script>
   </head>
 
   <p id="question1">What hunting season opens for adults on Saturday?</p>
-  <button type="text" onclick="answer()">Answer</button>
+  <button id="ansbutton" type="text" onclick="answer()">Answer</button>
 
 </body>
 </html>

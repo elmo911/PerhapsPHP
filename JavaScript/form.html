@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JavaScript Example</title>
+    <script type="text/javascript">
+      function valform() {
+        var email = document.forms["myform"]["email"].value;
+        if (email == null || email == ""){
+          alert("You must enter an email address.");
+          return false;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <form name="myform" class="form" action="handler.php" method="post" onsubmit="return valform()">
+      <input type="text" name="email" placeholder="Email">
+      <input type="submit" name="submit" value="Submit">
+    </form>
+  </body>
+</html>
