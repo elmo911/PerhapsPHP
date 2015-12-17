@@ -20,6 +20,7 @@ class QuestionDB
     if(isset($Company)){
       $return["sessID"] = md5( uniqid('auth', true) );
       $return["Company"] = $Company;
+      echo $Company["Name"];
     }
     else{
       $return["error"] = true;
