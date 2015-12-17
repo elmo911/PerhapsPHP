@@ -15,5 +15,8 @@ and Question.ViewID = View.ViewID";
 $stmt = $conn->prepare($sql_select);
 $stmt->execute();
 $returnedList = $stmt->fetchAll();
-echo $returnedList;
+foreach ($returnedList as $row) {
+  echo $row;
+}
+
  ?>
