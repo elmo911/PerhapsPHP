@@ -10,8 +10,10 @@ class QuestionDB
     $return["message"] = "Login Success";
     $sql_select = "SELECT Email, Password
     From Company
-    Where Email = ".$email."
-    And Password = ".$password.";";
+    Where Email = :email
+    And Password = :password";
+    $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+    $stmt->bindParam(':password', $password, PDO::PARAM_STR);
     $stmt = $conn->prepare($sql_select);
     $stmt->execute();
     $user = $stmt->fetch();
