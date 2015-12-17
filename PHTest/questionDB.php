@@ -3,9 +3,9 @@
 
 class QuestionDB
 {
-  public static function auth($email, $password)
+  include_once ("qdb.php");
+  public function auth($email, $password)
   {
-    include_once ("qdb.php");
     $return["error"] = false;
     $return["message"] = "Login Success";
     try {
@@ -34,9 +34,8 @@ class QuestionDB
     return $return;
   }
 
-  public static function QuestionByActivity($ActivityName, $CompanyID)
+  public function QuestionByActivity($ActivityName, $CompanyID)
   {
-    include_once ("qdb.php");
     $return["error"] = false;
     $return["message"] = "Question Retrieval Success";
 
@@ -77,7 +76,7 @@ class QuestionDB
     }
   }
 
-  
+
 }
 
 

@@ -2,14 +2,17 @@
 include 'QuestionDB.php';
 session_start();
 
+$QuestionDB = new QuestionDB();
+
 $_POST['email'] = "test@testcompany.com";
 $_POST['password'] = hash("sha256", "Password123test@testcompany.com");
+
 // Required field names
 $required = array('email', 'password');
 // Loop over field names, make sure each one exists and is not empty
 $proceed = false;
 if (isset($_POST['email']) && isset($_POST['password'])){
-  $return = QuestionDB::auth($_POST['email'], $_POST['password']);
+  $return = $QuestionDB->auth($_POST['email'], $_POST['password']);
   if($return["error"]){
     echo "ERROR|".$return["message"]."|";
   }
@@ -29,7 +32,7 @@ if($proceed){
   $_POST["ActivityQuestions"] = "ComplaintActivity";
   if(isset($_POST["ActivityQuestions"])){
     $ActivityName = $_POST["ActivityQuestions"];
-    QuestionDB::QuestionByActivity($ActivityName, $_SESSION["Company"]["CompanyID"]);
+    $QuestionDB->QuestionByActivity($ActivityName, $_SESSION["Company"]["CompanyID"]);
   }
 
 echo "Welcome ".$_SESSION["Company"]["Name"];
