@@ -19,7 +19,7 @@ if (isset($_POST['email']) && isset($_POST['password'])){
   }
   else{
     $_SESSION["Company"] = $return["Company"];
-    echo "SESSION|Welcome ".$return["Company"]["Name"];
+    echo "SESSION|Welcome ".var_dump($return["Company"]);
   }
 }
 
