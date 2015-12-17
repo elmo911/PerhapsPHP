@@ -15,7 +15,7 @@ and Question.ViewID = View.ViewID";
 $stmt = $conn->prepare($sql_select);
 $stmt->execute();
 while($row = $stmt->fetch()){
-  echo var_dump($row);
+  echo $row["Question"];
 }
 
  ?>
