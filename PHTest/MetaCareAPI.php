@@ -26,7 +26,7 @@ else if (isset($_SESSION["Company"])){
 //API Calls
 if($proceed){
   $_POST["ActivityQuestions"] = "ComplaintActivity";
-  if(isset($_POST["ActivityQuestions"]){
+  if(isset($_POST["ActivityQuestions"])){
     $ActivityName = $_POST["ActivityQuestions"];
     QuestionDB::QuestionByActivity($ActivityName, $_SESSION["Company"]["CompanyID"]);
   }
