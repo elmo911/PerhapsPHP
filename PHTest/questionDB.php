@@ -8,7 +8,7 @@ class QuestionDB
     include_once ("qdb.php");
     $return["error"] = false;
     $return["message"] = "Login Success";
-    $sql_select = "SELECT Email, Password
+    $sql_select = "SELECT CompanyID, Name, Email
     From Company
     Where Email = :email
     And Password = :password";
@@ -16,9 +16,10 @@ class QuestionDB
     $stmt->bindParam(':email', $email, PDO::PARAM_STR);
     $stmt->bindParam(':password', $password, PDO::PARAM_STR);
     $stmt->execute();
-    $user = $stmt->fetch();
-    if(isset($user)){
+    $Company = $stmt->fetch();
+    if(isset($Company)){
       $return["sessID"] = md5( uniqid('auth', true) );
+      $return["Company"] = $Company;
     }
     else{
       $return["error"] = true;
