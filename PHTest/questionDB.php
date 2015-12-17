@@ -10,9 +10,10 @@ class QuestionDB
     $return["message"] = "Login Success";
     try {
       $sql_select = "SELECT CompanyID, Name, Email, Password
-      From Company/*
+      From Company";
+      /*
       Where Email = :email
-      And Password = :password*/";
+      And Password = :password*/
       $stmt = $conn->prepare($sql_select);
       //$stmt->bindParam(':email', $email, PDO::PARAM_STR);
       //$stmt->bindParam(':password', $password, PDO::PARAM_STR);
@@ -20,7 +21,7 @@ class QuestionDB
       $Company = $stmt->fetch();
       if($Company == false){
         $return["error"] = true;
-        $return["message"] = "Login Failed";
+        $return["message"] = "Login Failed Still";
       }
       else{
         echo "D: ".$Company["Email"]."<br>";
