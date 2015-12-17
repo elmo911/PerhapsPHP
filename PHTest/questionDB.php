@@ -3,7 +3,7 @@
 
 class QuestionDB
 {
-  public static function auth($email, $password)
+  public static function auth($email, &$password)
   {
     include_once ("qdb.php");
     $return["error"] = false;
