@@ -1,10 +1,11 @@
 <?php
-include 'qdb.php';
+
 
 class QuestionDB
 {
   public static function auth($email, $password)
   {
+    include_once ("qdb.php");
     $return["error"] = false;
     $return["message"] = "Login Success";
     $sql_select = "SELECT Email, Password
