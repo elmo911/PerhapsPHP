@@ -2,7 +2,6 @@
 include 'qdb.php';
 
 $sql_select = "SELECT Question.Content As Question,
-Question.Description As Category,
  Answer.Answer As Answer,
   View.WidgetType As AnswerInputType,
    View.ResponseType As ExpectedData
