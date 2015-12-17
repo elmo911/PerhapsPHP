@@ -18,8 +18,8 @@ if (isset($_POST['email']) && isset($_POST['password'])){
     echo "ERROR|".$return["message"];
   }
   else{
-    $_SESSION["sessID"] = $return["sessID"];
-    echo "SESSION|".$return["sessID"];
+    $_SESSION["Company"] = $return["Company"];
+    echo "SESSION|Welcome ".$return["Company"]["Name"];
   }
 }
 
