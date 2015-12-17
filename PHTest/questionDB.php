@@ -27,7 +27,7 @@ class QuestionDB
         echo "D: ".$Company["Email"]."<br>";
         echo "W: ".$email."<br>";
         echo ($Company["Email"] == $email);
-        $password = "051ac8da1184fe0f635d6333d5609698333cc403b09074e905105b1a20b122dc";
+        //$password = "051ac8da1184fe0f635d6333d5609698333cc403b09074e905105b1a20b122dc";
         echo "<br>D: ".$Company["Password"]."<br>";
         echo "W: ".$password."<br>";
         echo ($Company["Password"] == $password);
