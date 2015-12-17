@@ -10,13 +10,12 @@ class QuestionDB
     $return["message"] = "Login Success";
     try {
       $sql_select = "SELECT CompanyID, Name, Email, Password
-      From Company";
-      /*
+      From Company
       Where Email = :email
-      And Password = :password*/
+      And Password = :password";
       $stmt = $conn->prepare($sql_select);
-      //$stmt->bindParam(':email', $email, PDO::PARAM_STR);
-      //$stmt->bindParam(':password', $password, PDO::PARAM_STR);
+      $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+      $stmt->bindParam(':password', $password, PDO::PARAM_STR);
       $stmt->execute();
       $Company = $stmt->fetch();
       if($Company == false){
@@ -24,13 +23,6 @@ class QuestionDB
         $return["message"] = "Login Failed";
       }
       else{
-        echo "D: ".$Company["Email"]."<br>";
-        echo "W: ".$email."<br>";
-        echo ($Company["Email"] == $email);
-        echo "<br>D: ".$Company["Password"]."<br>";
-        echo "D: ".$password."<br>";
-        echo ($Company["Password"] == $password);
-
         $return["Company"] = $Company;
       }
     } catch (Exception $e) {
