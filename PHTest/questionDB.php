@@ -6,7 +6,7 @@ class QuestionDB
   public static function auth($email, $password)
   {
     $return["error"] = false;
-    $return["message"] = "Login Success"
+    $return["message"] = "Login Success";
     $sql_select = "SELECT Email, Password
     From Company
     Where Email = ".$email."
