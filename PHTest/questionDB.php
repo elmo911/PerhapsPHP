@@ -3,10 +3,26 @@ include 'qdb.php';
 
 class QuestionDB
 {
-  public function auth($username, $password)
+  public static function auth($email, $password)
   {
+    $return["error"] = false;
+    $return["message"] = "Login Success"
+    $sql_select = "SELECT Email, Password
+    From Company
+    Where Email = ".$email."
+    And Password = ".$password.";";
+    $stmt = $conn->prepare($sql_select);
+    $stmt->execute();
+    $user = $stmt->fetch();
+    if(isset($user)){
+      $return["sessID"] = md5( uniqid('auth', true) );
+    }
+    else{
+      $return["error"] = true;
+      $return["message"] = "Login Failed";
+    }
 
-    $hash = hash('sha256', $password.$username);
+    return $return;
   }
 }
 
