@@ -12,9 +12,9 @@ class QuestionDB
     From Company
     Where Email = :email
     And Password = :password";
+    $stmt = $conn->prepare($sql_select);
     $stmt->bindParam(':email', $email, PDO::PARAM_STR);
     $stmt->bindParam(':password', $password, PDO::PARAM_STR);
-    $stmt = $conn->prepare($sql_select);
     $stmt->execute();
     $user = $stmt->fetch();
     if(isset($user)){
