@@ -23,7 +23,7 @@ if (isset($_POST['email']) && isset($_POST['password'])){
   }
 }
 
-if($proceed)){
+if($proceed){
   //
 
 }
