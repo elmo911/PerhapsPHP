@@ -8,23 +8,27 @@ class QuestionDB
     include_once ("qdb.php");
     $return["error"] = false;
     $return["message"] = "Login Success";
-    $sql_select = "SELECT CompanyID, Name, Email
-    From Company
-    Where Email = :email
-    And Password = :password";
-    $stmt = $conn->prepare($sql_select);
-    $stmt->bindParam(':email', $email, PDO::PARAM_STR);
-    $stmt->bindParam(':password', $password, PDO::PARAM_STR);
-    $stmt->execute();
-    $Company = $stmt->fetch();
-    if(isset($Company)){
-      $return["sessID"] = md5( uniqid('auth', true) );
-      $return["Company"] = $Company;
-      echo $Company["Name"];
-    }
-    else{
+    try {
+      $sql_select = "SELECT CompanyID, Name, Email
+      From Company
+      Where Email = :email
+      And Password = :password";
+      $stmt = $conn->prepare($sql_select);
+      $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+      $stmt->bindParam(':password', $password, PDO::PARAM_STR);
+      $stmt->execute();
+      $Company = $stmt->fetch();
+      if($Company == false){
+        $return["error"] = true;
+        $return["message"] = "Login Failed";
+      }
+      else{
+        $return["Company"] = $Company;
+      }
+    } catch (Exception $e) {
       $return["error"] = true;
-      $return["message"] = "Login Failed";
+      $return["message"] = "Server Error";
+      $return["dump"] = var_dump($e);
     }
 
     return $return;
