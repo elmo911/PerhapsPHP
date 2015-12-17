@@ -1,9 +1,9 @@
 <?php
-
+include_once ("qdb.php");
 
 class QuestionDB
 {
-  include_once ("qdb.php");
+
   public function auth($email, $password)
   {
     $return["error"] = false;
