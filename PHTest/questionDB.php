@@ -14,8 +14,7 @@ and CompanyQuestionSet.AnswerID = Answer.AnswerID
 and Question.ViewID = View.ViewID";
 $stmt = $conn->prepare($sql_select);
 $stmt->execute();
-$returnedList = $stmt->fetchAll();
-foreach ($returnedList as $row) {
+while($row = $stmt->fetch()){
   echo $row;
 }
 
