@@ -5,7 +5,7 @@ echo "user: test@testcompany.com <br>";
 $hash = hash('sha256', "Password123test@testcompany.com");
 echo "password: ".$hash."<br>";
 
-$return = QuestionDB::auth("test@testcompany.com", $hash);
+$return = QuestionDB::auth("test@testcompany.com", '051ac8da1184fe0f635d6333d5609698333cc403b09074e905105b1a20b122d');
 if($return["error"]){
   echo "ERROR|".$return["message"];
 }
