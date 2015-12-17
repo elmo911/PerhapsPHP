@@ -1,6 +1,18 @@
 <?php
 include 'qdb.php';
 
+class QuestionDB
+{
+  public function auth($username, $password)
+  {
+
+    $hash = hash('sha256', $password.$username);
+  }
+}
+
+
+
+
 $sql_select = "SELECT Question.Content As Question,
  Answer.Answer As Answer,
   View.WidgetType As AnswerInputType,
@@ -15,7 +27,7 @@ and Question.ViewID = View.ViewID";
 $stmt = $conn->prepare($sql_select);
 $stmt->execute();
 while($row = $stmt->fetch()){
-  echo $row["Question"];
+  echo $row["Question"].'<br>';
 }
 
  ?>
