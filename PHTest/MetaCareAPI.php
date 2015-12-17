@@ -3,7 +3,7 @@ include 'QuestionDB.php';
 session_start();
 
 $_POST['email'] = "test@testcompany.com";
-$_POST['password'] = $hash;
+$_POST['password'] = hash("sha256", "test@testcompany.comPassword123");
 // Required field names
 $required = array('email', 'password');
 // Loop over field names, make sure each one exists and is not empty
@@ -23,7 +23,13 @@ else if (isset($_SESSION["Company"])){
   $proceed = true;
 }
 
+//API Calls
 if($proceed){
+  $_POST["ActivityQuestions"] = "ComplaintActivity";
+  if(isset($_POST["ActivityQuestions"]){
+    $ActivityName = $_POST["ActivityQuestions"];
+    QuestionDB::QuestionByActivity($ActivityName, $_SESSION["Company"]["CompanyID"]);
+  }
 
 echo "Welcome ".$_SESSION["Company"]["Name"];
 }
