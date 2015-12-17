@@ -16,6 +16,7 @@ if (isset($_POST['email']) && isset($_POST['password'])){
   else{
     $_SESSION["Company"] = $return["Company"];
     echo "AUTH SUCCESS|";
+    $proceed = true;
   }
 }
 else if (isset($_SESSION["Company"])){
