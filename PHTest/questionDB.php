@@ -3,7 +3,7 @@
 
 class QuestionDB
 {
-  public function auth($email, $password)
+  public static function auth($email, $password)
   {
     include_once ("qdb.php");
     $return["error"] = false;
@@ -27,9 +27,8 @@ class QuestionDB
         echo "D: ".$Company["Email"]."<br>";
         echo "W: ".$email."<br>";
         echo ($Company["Email"] == $email);
-        //$password = "051ac8da1184fe0f635d6333d5609698333cc403b09074e905105b1a20b122dc";
         echo "<br>D: ".$Company["Password"]."<br>";
-        echo "W: ".$password."<br>";
+        echo "D: ".$password."<br>";
         echo ($Company["Password"] == $password);
 
         $return["Company"] = $Company;
