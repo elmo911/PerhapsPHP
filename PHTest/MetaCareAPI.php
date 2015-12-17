@@ -5,8 +5,16 @@ echo "user: test@testcompany.com <br>";
 $hash = hash('sha256', "Password123test@testcompany.com");
 echo "password: ".$hash."<br>";
 
-$_POST['email'] = "test@testcompany.com";
-$_POST['password'] = $hash;
+$return = QuestionDB::auth("test@testcompany.com", "051ac8da1184fe0f635d6333d5609698333cc403b09074e905105b1a20b122dc");
+if($return["error"]){
+  echo "ERROR|".$return["message"];
+}
+else{
+  $_SESSION["Company"] = $return["Company"];
+  echo "SESSION|Welcome ";
+}
+
+
 // Required field names
 $required = array('email', 'password');
 
