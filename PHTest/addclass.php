@@ -89,19 +89,19 @@ class AddToDB
       $stmt->execute();
 
       while($Question = $stmt->fetch()){
-        $out = $out + '
+        $out = $out . '
         <tr>';
         foreach ($Question as $key => $value) {
-          $out = $out + '
-          <td>'+$value+'</td>';
+          $out = $out . '
+          <td>'.$value.'</td>';
         }
-        $out = $out + '
+        $out = $out . '
         </tr>';
       }
 
 
 
-      $out = $out + '
+      $out = $out . '
       </table>';
       return $out;
   }

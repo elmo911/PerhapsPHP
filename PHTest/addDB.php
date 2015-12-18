@@ -3,8 +3,10 @@ include 'addclass.php';
 session_start();
 
 echo '
+<!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
     <title>Add Page</title>
   </head>
   <body>
@@ -21,11 +23,10 @@ echo '
         $_SESSION["ADDID"] = $_POST["ADDID"];
       }
       $id = $_SESSION["ADDID"];
-      echo "<p>Current CompanyID is </p>";
       if(isset($id)){
-        echo "<p>Current CompanyID is "+ $_SESSION["ADDID"] +"</p>";
+        echo "<p>Current CompanyID is ". $_SESSION["ADDID"] ."</p>";
         $addclass = new AddToDB($_SESSION["ADDID"]);
-        echo "<p>Current Company Name is " + $addclass->companyName() + "</p>";
+        echo "<p>Current Company Name is " . $addclass->companyName() . "</p>";
         echo $addclass->listDB();
       }
 
