@@ -47,6 +47,19 @@ class AddToDB
     return $ID["ViewID"];
   }
 
+  public function viewOptions()
+  {
+    $out = '';
+    $sql_select = "SELECT ViewID, InputType from View";
+    $stmt = $this->conn->prepare($sql_select);
+    $stmt->execute();
+    while($row = $stmt->fetch()){
+      $out = $out. '
+      <option value="'.$row["ViewID"].'">'.$row["InputType"].'</option>';
+    }
+    return $out;
+  }
+
   public function addActivity($ActivityName){
     $sql_insert = "INSERT INTO `QuestionDB`.`Activity` (`ActivityName`) VALUES ('".$ActivityName."')";
     $stmt = $this->conn->prepare($sql_insert);
