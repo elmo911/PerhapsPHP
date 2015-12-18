@@ -98,6 +98,19 @@ class AddToDB
     return $ID["ActivityID"];
   }
 
+  public function activityOptions()
+  {
+    $out = '';
+    $sql_select = "SELECT ActivityID, ActivityName from Activity";
+    $stmt = $this->conn->prepare($sql_select);
+    $stmt->execute();
+    while($row = $stmt->fetch()){
+      $out = $out. '
+      <option value="'.$row["ActivityID"].'">'.$row["ActivityName"].'</option>';
+    }
+    return $out;
+  }
+
   public function addQuestion($Question, $ViewID){
     $sql_insert = "INSERT INTO `QuestionDB`.`Question` (`Content`, `ViewID`) VALUES ('".$Question."', '".$ViewID."')";
     $stmt = $this->conn->prepare($sql_insert);
@@ -108,6 +121,19 @@ class AddToDB
     $stmt->execute();
     $ID = $stmt->fetch();
     return $ID["QuestionID"];
+  }
+
+  public function questionOptions()
+  {
+    $out = '';
+    $sql_select = "SELECT QuestionID, Content from Question";
+    $stmt = $this->conn->prepare($sql_select);
+    $stmt->execute();
+    while($row = $stmt->fetch()){
+      $out = $out. '
+      <option value="'.$row["QuestionID"].'">'.$row["Content"].'</option>';
+    }
+    return $out;
   }
 
   public function listDB(){

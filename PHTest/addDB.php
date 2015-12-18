@@ -34,6 +34,25 @@ echo '
       <input type="submit" name="submit" value="Submit">
     </form>
     <h3>
+      Add CompanyQuestionSet
+    </h3>
+    <form class="" action="addDB.php" method="post">
+      <input type="text" name="QuestionContent" value="" placeholder="Content">
+      <select name="CSActivityID">';
+      echo $addclass->activityOptions();
+      echo '
+      </select>
+      <select name="CSQuestionID">';
+      echo $addclass->questionOptions();
+      echo '
+      </select>
+      <select name="CSAnswerID">';
+      echo $addclass->answerOptions();
+      echo '
+      </select>
+      <input type="submit" name="submit" value="Submit">
+    </form>
+    <h3>
       Add Question
     </h3>
     <form class="" action="addDB.php" method="post">
