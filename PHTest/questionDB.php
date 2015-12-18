@@ -1,8 +1,14 @@
 <?php
-include_once ("qdb.php");
+
 
 class QuestionDB
 {
+  public $conn;
+  public function __construct()
+  {
+    include_once ("qdb.php");
+    $this->conn = $conn;
+  }
 
   public function auth($email, $password)
   {
@@ -13,7 +19,7 @@ class QuestionDB
       From Company
       Where Email = :email
       And Password = :password";
-      $stmt = $conn->prepare($sql_select);
+      $stmt = $this->conn->prepare($sql_select);
       $stmt->bindParam(':email', $email, PDO::PARAM_STR);
       $stmt->bindParam(':password', $password, PDO::PARAM_STR);
       $stmt->execute();
@@ -55,7 +61,7 @@ class QuestionDB
       and Question.ViewID = View.ViewID
       and CompanyQuestionSet.AnswerID = Answer.AnswerID";
 
-      $stmt = $conn->prepare($sql_select);
+      $stmt = $this->conn->prepare($sql_select);
       $stmt->bindParam(':CompanyID', $CompanyID, PDO::PARAM_INT);
       $stmt->bindParam(':ActivityName', $ActivityName, PDO::PARAM_STR);
       $stmt->execute();
