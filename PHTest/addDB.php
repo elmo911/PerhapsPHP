@@ -49,13 +49,12 @@ echo '
     </h3>
     ';
     if(isset($_POST["ADDID"])){
-      $_SESSION["ADDID"] = $_POST["ADDID"];
+      $_SESSION["CurCompanyID"] = $_POST["ADDID"];
     }
-    $id = $_SESSION["ADDID"];
-    if(isset($id)){
+    if(isset($_SESSION["CurCompanyID"])){
       $idSet = true;
-      echo "<p>Current CompanyID is ". $_SESSION["ADDID"] ."</p>";
-      $addclass = new AddToDB($_SESSION["ADDID"]);
+      echo "<p>Current CompanyID is ". $_SESSION["CurCompanyID"] ."</p>";
+      $addclass = new AddToDB($_SESSION["CurCompanyID"]);
       echo "<p>Current Company Name is " . $addclass->companyName() . "</p>";
 
       if($auth){
@@ -132,7 +131,7 @@ echo '
 }
   if($auth && $idSet){
     if(isset($_POST["CSActivityID"]) && isset($_POST["CSQuestionID"]) && isset($_POST["CSAnswerID"])){
-      $addclass->addCompanyQuestionSet($id, $_POST["CSActivityID"], $_POST["CSQuestionID"], $_POST["CSAnswerID"]);
+      $addclass->addCompanyQuestionSet($_SESSION["CurCompanyID"], $_POST["CSActivityID"], $_POST["CSQuestionID"], $_POST["CSAnswerID"]);
     }
 
     if(isset($_POST["QuestionContent"]) && isset($_POST["QuestionViewID"])){
