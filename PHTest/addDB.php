@@ -64,7 +64,12 @@ echo '
     echo '
     <form class="" action="addDB.php" method="post">
       <select name="ADDID">';
-      echo AddToDB::companyOptions();
+      if($idSet){
+        $addclass->companyOptions();
+      }
+      else {
+        echo AddToDB::staticCompanyOptions();
+      }
       echo '
       </select>
       <input type="submit" name="submit" value="Submit">

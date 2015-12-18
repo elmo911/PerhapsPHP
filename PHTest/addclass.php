@@ -36,12 +36,25 @@ class AddToDB
     return $ID["Name"];
   }
 
-  public static function companyOptions()
+  public static function staticCompanyOptions()
   {
     include_once ("qdb.php");
     $out = '';
     $sql_select = "SELECT CompanyID, Name from Company";
     $stmt = $conn->prepare($sql_select);
+    $stmt->execute();
+    while($row = $stmt->fetch()){
+      $out = $out. '
+      <option value="'.$row["CompanyID"].'">'.$row["Name"].'</option>';
+    }
+    return $out;
+  }
+
+  public function companyOptions()
+  {
+    $out = '';
+    $sql_select = "SELECT CompanyID, Name from Company";
+    $stmt = $this->conn->prepare($sql_select);
     $stmt->execute();
     while($row = $stmt->fetch()){
       $out = $out. '
