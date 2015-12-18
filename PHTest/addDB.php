@@ -21,7 +21,7 @@ echo '
         $_SESSION["ADDID"] = $_POST["ADDID"];
       }
       $id = $_SESSION["ADDID"];
-      echo "<p>Current CompanyID is "+ $id +"</p>";
+      echo "<p>Current CompanyID is </p>";
       if(isset($id)){
         echo "<p>Current CompanyID is "+ $_SESSION["ADDID"] +"</p>";
         $addclass = new AddToDB($_SESSION["ADDID"]);
