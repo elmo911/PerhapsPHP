@@ -52,7 +52,6 @@ class AddToDB
 
   public function companyOptions()
   {
-    echo "string";
     try {
       $out = '';
       $sql_select = "SELECT CompanyID, Name from Company";
@@ -63,7 +62,7 @@ class AddToDB
         <option value="'.$row["CompanyID"].'">'.$row["Name"].'</option>';
       }
     } catch (Exception $e) {
-      return var_dump($e);
+      return "Exeption";
     }
     return $out;
   }

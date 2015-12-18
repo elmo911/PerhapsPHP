@@ -65,7 +65,7 @@ echo '
     <form class="" action="addDB.php" method="post">
       <select name="ADDID">';
       if($idSet){
-        $addclass->companyOptions();
+        echo $addclass->companyOptions();
       }
       else {
         echo AddToDB::staticCompanyOptions();
