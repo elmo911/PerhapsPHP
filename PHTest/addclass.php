@@ -108,6 +108,18 @@ class AddToDB
       $stmt->execute();
       $out = $this->printRows($stmt, $out);
 
+      $out = $out . '
+      <br><br>
+      <tr>
+        <td><h2>View</h2></td>
+      </tr>';
+      $answerHeaders = array("ViewID", "InputType", "ResponseType");
+      $out = $this->printHeaders($answerHeaders, $out);
+      $sql_selq = "SELECT * from View";
+      $stmt = $this->conn->prepare($sql_selq);
+      $stmt->execute();
+      $out = $this->printRows($stmt, $out);
+
 
       $out = $out . '
       </table>';
