@@ -21,6 +21,7 @@ class AddToDB
         $conn = new PDO("mysql:host=$servername;dbname=QuestionDB", $username, $dbpw);
         // set the PDO error mode to exception
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $this->conn = $conn;
         }
     catch(PDOException $e)
         {
