@@ -65,12 +65,14 @@ echo '
     echo '
     <form class="" action="addDB.php" method="post">
       <select name="ADDID">';
-      echo $addclass->companyOptions();
+      echo AddToDB::companyOptions();
       echo '
       </select>
       <input type="submit" name="submit" value="Submit">
-    </form>
+    </form>';
 
+  if($idSet){
+    echo '
     <h3>
       Add CompanyQuestionSet
     </h3>
@@ -127,7 +129,7 @@ echo '
       <input type="submit" name="submit" value="Submit">
     </form>
 ';
-
+}
   if($auth && $idSet){
     if(isset($_POST["CSActivityID"]) && isset($_POST["CSQuestionID"]) && isset($_POST["CSAnswerID"])){
       $addclass->addCompanyQuestionSet($id, $_POST["CSActivityID"], $_POST["CSQuestionID"], $_POST["CSAnswerID"]);

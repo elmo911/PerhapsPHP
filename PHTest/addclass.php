@@ -36,7 +36,7 @@ class AddToDB
     return $ID["Name"];
   }
 
-  public function companyOptions()
+  public static function companyOptions()
   {
     $out = '';
     $sql_select = "SELECT CompanyID, Name from Company";
