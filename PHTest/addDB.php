@@ -33,11 +33,11 @@ echo '
       </select>
       <input type="submit" name="submit" value="Submit">
     </form>
+
     <h3>
       Add CompanyQuestionSet
     </h3>
     <form class="" action="addDB.php" method="post">
-      <input type="text" name="QuestionContent" value="" placeholder="Content">
       <select name="CSActivityID">';
       echo $addclass->activityOptions();
       echo '
@@ -52,6 +52,7 @@ echo '
       </select>
       <input type="submit" name="submit" value="Submit">
     </form>
+
     <h3>
       Add Question
     </h3>
@@ -63,22 +64,39 @@ echo '
       </select>
       <input type="submit" name="submit" value="Submit">
     </form>
+
     <h3>
       Add Answer
     </h3>
     <form class="" action="addDB.php" method="post">
-      <input type="text" name="Answer" value="" placeholder="Answer">
+      <input type="text" name="AddAnswer" value="" placeholder="Answer">
       <input type="submit" name="submit" value="Submit">
     </form>
+
     <h3>
       Add Activity
     </h3>
     <form class="" action="addDB.php" method="post">
-      <input type="text" name="Activity" value="" placeholder="Activity">
+      <input type="text" name="AddActivity" value="" placeholder="Activity">
       <input type="submit" name="submit" value="Submit">
     </form>
 ';
 
+  if(isset($_POST["CSActivityID"]) && isset($_POST["CSQuestionID"]) && isset($_POST["CSAnswerID"])){
+    $addclass->addCompanyQuestionSet($id, $_POST["CSActivityID"], $_POST["CSQuestionID"], $_POST["CSAnswerID"]);
+  }
+
+  if(isset($_POST["QuestionContent"]), isset($_POST["QuestionViewID"])){
+    $addclass->addQuestion($_POST["QuestionContent"], $_POST["QuestionViewID"]));
+  }
+
+  if(isset($_POST["AddAnswer"])){
+    $addclass->addAnswer($_POST["AddAnswer"]);
+  }
+
+  if(isset($_POST["AddActivity"])){
+    $addclass->addActivity($_POST["AddActivity"]);
+  }
 
   echo $addclass->listDB();
 

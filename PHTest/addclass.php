@@ -53,7 +53,7 @@ class AddToDB
     $stmt->execute();
     while($row = $stmt->fetch()){
       $out = $out. '
-      <option value="'.$row["AnswerID"].'">'.$row["AnswerID"].'</option>';
+      <option value="'.$row["AnswerID"].'">'.$row["Answer"].'</option>';
     }
     return $out;
   }
@@ -121,6 +121,13 @@ class AddToDB
     $stmt->execute();
     $ID = $stmt->fetch();
     return $ID["QuestionID"];
+  }
+
+  public function addCompanyQuestionSet($CompanyID, $ActivityID, $QuestionID, $AnswerID){
+    $sql_insert = "INSERT INTO `QuestionDB`.`CompanyQuestionSet` (`CompanyID`, `ActivityID`, `QuestionID`, `AnswerID`)
+    VALUES ('".$CompanyID."', '".$ActivityID."', '".$QuestionID."', '".$AnswerID."')";
+    $stmt = $this->conn->prepare($sql_insert);
+    $stmt->execute();
   }
 
   public function questionOptions()
