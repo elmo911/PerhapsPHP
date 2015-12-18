@@ -78,11 +78,17 @@ class AddToDB
         <td>Questions</td>
       </tr>';
       $questionHeaders = array("QuestionID", "ViewID", "Content", "Private", "TimeStamp");
-      $this->printHeaders($questionHeaders);
+      $out = $this->printHeaders($questionHeaders, $out);
       $sql_selq = "SELECT * from Question";
       $stmt = $this->conn->prepare($sql_selq);
       $stmt->execute();
       $out = $this->printRows($stmt, $out);
+
+      $out = $out . '
+      <tr>
+        <td>Answers</td>
+      </tr>';
+
 
       $out = $out . '
       </table>';
