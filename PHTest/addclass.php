@@ -73,7 +73,7 @@ class AddToDB
 
   public function listDB(){
     $out = '
-    <table style="width:100%">
+    <table>
       <tr>
         <td><h2>Question</h2></td>
       </tr>';
@@ -116,6 +116,18 @@ class AddToDB
       $answerHeaders = array("ViewID", "InputType", "ResponseType");
       $out = $this->printHeaders($answerHeaders, $out);
       $sql_selq = "SELECT * from View";
+      $stmt = $this->conn->prepare($sql_selq);
+      $stmt->execute();
+      $out = $this->printRows($stmt, $out);
+
+      $out = $out . '
+      <br><br>
+      <tr>
+        <td><h2>Company</h2></td>
+      </tr>';
+      $answerHeaders = array("CompanyID", "Name", "Email", "Password");
+      $out = $this->printHeaders($answerHeaders, $out);
+      $sql_selq = "SELECT * from Company";
       $stmt = $this->conn->prepare($sql_selq);
       $stmt->execute();
       $out = $this->printRows($stmt, $out);
