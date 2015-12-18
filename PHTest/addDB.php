@@ -87,7 +87,7 @@ echo '
   }
 
   if(isset($_POST["QuestionContent"]) && isset($_POST["QuestionViewID"])){
-    $addclass->addQuestion($_POST["QuestionContent"], $_POST["QuestionViewID"]));
+    $addclass->addQuestion($_POST["QuestionContent"], $_POST["QuestionViewID"]);
   }
 
   if(isset($_POST["AddAnswer"])){
