@@ -75,6 +75,29 @@ echo '
       <input type="submit" name="submit" value="Submit">
     </form>';
 
+  //POST CHECK
+  if($auth && $idSet){
+    if(isset($_POST["CSActivityID"]) && isset($_POST["CSQuestionID"]) && isset($_POST["CSAnswerID"])){
+      $addclass->addCompanyQuestionSet($_SESSION["CurCompanyID"], $_POST["CSActivityID"], $_POST["CSQuestionID"], $_POST["CSAnswerID"]);
+    }
+
+    if(isset($_POST["QuestionContent"]) && isset($_POST["QuestionViewID"])){
+      $addclass->addQuestion($_POST["QuestionContent"], $_POST["QuestionViewID"]);
+    }
+
+    if(isset($_POST["AddAnswer"])){
+      $addclass->addAnswer($_POST["AddAnswer"]);
+    }
+
+    if(isset($_POST["AddActivity"])){
+      $addclass->addActivity($_POST["AddActivity"]);
+    }
+
+    if(isset($_POST["AddInputType"]) && isset($_POST["AddResponseType"])){
+      $addclass->addView($_POST["AddInputType"], $_POST["AddResponseType"]);
+    }
+  }
+
   if($idSet){
     echo '
     <h3>
@@ -134,27 +157,7 @@ echo '
     </form>
 ';
 }
-  if($auth && $idSet){
-    if(isset($_POST["CSActivityID"]) && isset($_POST["CSQuestionID"]) && isset($_POST["CSAnswerID"])){
-      $addclass->addCompanyQuestionSet($_SESSION["CurCompanyID"], $_POST["CSActivityID"], $_POST["CSQuestionID"], $_POST["CSAnswerID"]);
-    }
 
-    if(isset($_POST["QuestionContent"]) && isset($_POST["QuestionViewID"])){
-      $addclass->addQuestion($_POST["QuestionContent"], $_POST["QuestionViewID"]);
-    }
-
-    if(isset($_POST["AddAnswer"])){
-      $addclass->addAnswer($_POST["AddAnswer"]);
-    }
-
-    if(isset($_POST["AddActivity"])){
-      $addclass->addActivity($_POST["AddActivity"]);
-    }
-
-    if(isset($_POST["AddInputType"]) && isset($_POST["AddResponseType"])){
-      $addclass->addView($_POST["AddInputType"], $_POST["AddResponseType"]);
-    }
-  }
 
   if($idSet){
   echo $addclass->listDB();
