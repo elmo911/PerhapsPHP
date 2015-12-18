@@ -97,6 +97,7 @@ class AddToDB
             $out = $out . '
             <td>'.$key.'</td>';
           }
+          $count++;
         }
         $out = $out . '
         </tr>';
