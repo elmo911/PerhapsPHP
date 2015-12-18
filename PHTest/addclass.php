@@ -52,13 +52,17 @@ class AddToDB
 
   public function companyOptions()
   {
-    $out = '';
-    $sql_select = "SELECT CompanyID, Name from Company";
-    $stmt = $this->conn->prepare($sql_select);
-    $stmt->execute();
-    while($row = $stmt->fetch()){
-      $out = $out. '
-      <option value="'.$row["CompanyID"].'">'.$row["Name"].'</option>';
+    try {
+      $out = '';
+      $sql_select = "SELECT CompanyID, Name from Company";
+      $stmt = $this->conn->prepare($sql_select);
+      $stmt->execute();
+      while($row = $stmt->fetch()){
+        $out = $out. '
+        <option value="'.$row["CompanyID"].'">'.$row["Name"].'</option>';
+      }
+    } catch (Exception $e) {
+      return var_dump($e);
     }
     return $out;
   }
