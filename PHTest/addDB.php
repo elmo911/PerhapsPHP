@@ -80,6 +80,15 @@ echo '
       <input type="text" name="AddActivity" value="" placeholder="Activity">
       <input type="submit" name="submit" value="Submit">
     </form>
+
+    <h3>
+      Add View
+    </h3>
+    <form class="" action="addDB.php" method="post">
+      <input type="text" name="AddInputType" value="" placeholder="Input Type">
+      <input type="text" name="AddResponseType" value="" placeholder="Expected Return Data Type">
+      <input type="submit" name="submit" value="Submit">
+    </form>
 ';
 
   if(isset($_POST["CSActivityID"]) && isset($_POST["CSQuestionID"]) && isset($_POST["CSAnswerID"])){
@@ -96,6 +105,10 @@ echo '
 
   if(isset($_POST["AddActivity"])){
     $addclass->addActivity($_POST["AddActivity"]);
+  }
+
+  if(isset($_POST["AddInputType"]) && isset($_POST["AddResponseType"])){
+    $addclass->addView($_POST["AddInputType"], $_POST["AddResponseType"]);
   }
 
   echo $addclass->listDB();
