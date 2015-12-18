@@ -3,10 +3,8 @@ include 'addclass.php';
 session_start();
 
 echo '
-<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
     <title>Add Page</title>
   </head>
   <body>
