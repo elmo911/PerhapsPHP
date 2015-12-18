@@ -38,9 +38,10 @@ class AddToDB
 
   public static function companyOptions()
   {
+    include_once ("qdb.php");
     $out = '';
     $sql_select = "SELECT CompanyID, Name from Company";
-    $stmt = $this->conn->prepare($sql_select);
+    $stmt = $conn->prepare($sql_select);
     $stmt->execute();
     while($row = $stmt->fetch()){
       $out = $out. '
