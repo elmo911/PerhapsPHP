@@ -52,6 +52,7 @@ class AddToDB
 
   public function companyOptions()
   {
+    echo "string";
     try {
       $out = '';
       $sql_select = "SELECT CompanyID, Name from Company";
