@@ -75,7 +75,7 @@ class AddToDB
     $out = '
     <table style="width:100%">
       <tr>
-        <td>Questions</td>
+        <td><h3>Questions</h3></td>
       </tr>';
       $questionHeaders = array("QuestionID", "ViewID", "Content", "Private", "TimeStamp");
       $out = $this->printHeaders($questionHeaders, $out);
@@ -85,9 +85,16 @@ class AddToDB
       $out = $this->printRows($stmt, $out);
 
       $out = $out . '
+      <br>
       <tr>
-        <td>Answers</td>
+        <td><h3>Answers</h3></td>
       </tr>';
+      $answerHeaders = array("AnswerID", "Answer", "TIMESTAMP");
+      $out = $this->printHeaders($answerHeaders, $out);
+      $sql_selq = "SELECT * from Answer";
+      $stmt = $this->conn->prepare($sql_selq);
+      $stmt->execute();
+      $out = $this->printRows($stmt, $out);
 
 
       $out = $out . '
