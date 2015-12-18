@@ -87,15 +87,20 @@ class AddToDB
       $sql_selq = "SELECT * from Question";
       $stmt = $this->conn->prepare($sql_selq);
       $stmt->execute();
-      $this->printRows($stmt);
+      $out = $this->printRows($stmt, $out);
 
       $out = $out . '
       </table>';
       return $out;
   }
 
+private function printHeaders($Headers, $out){
+  foreach ($Headers as $header) {
+    # code...
+  }
+}
 
-  private function printRows($stmt){
+  private function printRows($stmt, $out){
     while($row = $stmt->fetch()){
       $out = $out . '
       <tr>';
@@ -110,6 +115,7 @@ class AddToDB
       $out = $out . '
       </tr>';
     }
+    return $out;
   }
 
 
