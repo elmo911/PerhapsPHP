@@ -12,6 +12,22 @@ class AddToDB
     $this->CompanyID = $CompanyID;
   }
 
+  public function setNewConn($user, $pw){
+    $servername = "158.69.203.77";
+    $username = $user;
+    $dbpw = $pw;
+
+    try {
+        $conn = new PDO("mysql:host=$servername;dbname=QuestionDB", $username, $dbpw);
+        // set the PDO error mode to exception
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        }
+    catch(PDOException $e)
+        {
+        echo "Connection failed: " . $e->getMessage();
+        }
+  }
+
   public function companyName(){
     $sql_select = "SELECT Name from Company where CompanyID = '".$this->CompanyID."'";
     $stmt = $this->conn->prepare($sql_select);
@@ -156,7 +172,7 @@ class AddToDB
     $sql_selq = "SELECT Company.Name As Name, Activity.ActivityName As Activity,
     Question.Content As Question, Answer.Answer As Answer
     From CompanyQuestionSet, Company, Question, Answer, Activity
-    Where Company.CompanyID = ".$this->CompanyID." 
+    Where Company.CompanyID = ".$this->CompanyID."
     and CompanyQuestionSet.CompanyID = Company.CompanyID
     and CompanyQuestionSet.ActivityID = Activity.ActivityID
     and CompanyQuestionSet.QuestionID = Question.QuestionID

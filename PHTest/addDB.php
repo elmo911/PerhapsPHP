@@ -2,7 +2,8 @@
 include 'addclass.php';
 session_start();
 
-
+$auth = false;
+$idSet = false;
 
 echo '
 <!DOCTYPE html>
@@ -11,7 +12,38 @@ echo '
     <meta charset="utf-8">
     <title>Add Page</title>
   </head>
-  <body>
+  <body>';
+
+  if(isset($_POST["Logout"])){
+    session_unset();
+  }
+
+  if(isset($_POST["SQLUser"]), isset($_POST["SQLPassword"])){
+    $_SESSION["SQLUser"] = $_POST["SQLUser"];
+    $_SESSION["SQLPassword"] = $_POST["SQLPassword"];
+  }
+
+  if(isset($_SESSION["SQLUser"]), isset($_SESSION["SQLPassword"])){
+    $auth = true;
+    echo "<p>Current SQL User is ". $_SESSION["SQLUser"] ."</p>";
+  }
+  echo '
+    <h3>
+      Add SQL Login
+    </h3>
+    <form class="" action="addDB.php" method="post">
+      <input type="text" name="SQLUser" value="" placeholder="SQL Username">
+      <input type="password" name="SQLPassword" value="" placeholder="SQL Password">
+      <input type="submit" name="submit" value="Login">
+    </form>
+
+    <h3>
+      Add SQL Logout
+    </h3>
+    <form class="" action="addDB.php" method="post">
+      <input type="submit" name="Logout" value="Logout">
+    </form>
+
     <h3>
       Set/change CompanyID
     </h3>
@@ -21,9 +53,14 @@ echo '
     }
     $id = $_SESSION["ADDID"];
     if(isset($id)){
+      $idSet = true;
       echo "<p>Current CompanyID is ". $_SESSION["ADDID"] ."</p>";
       $addclass = new AddToDB($_SESSION["ADDID"]);
       echo "<p>Current Company Name is " . $addclass->companyName() . "</p>";
+
+      if($auth){
+        $addclass->setNewConn($_SESSION["SQLUser"], $_SESSION["SQLPassword"]);
+      }
     }
     echo '
     <form class="" action="addDB.php" method="post">
