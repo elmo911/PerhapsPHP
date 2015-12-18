@@ -91,9 +91,9 @@ class AddToDB
       while($Question = $stmt->fetch()){
         $out = $out . '
         <tr>';
-        foreach ($Question as $key => $value) {
+        foreach ($Question as $key) {
           $out = $out . '
-          <td>'.$value.'</td>';
+          <td>'.$key.'</td>';
         }
         $out = $out . '
         </tr>';
