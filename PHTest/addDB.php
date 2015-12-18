@@ -1,3 +1,5 @@
+<?php
+echo '
 <!DOCTYPE html>
 <html>
   <head>
@@ -12,7 +14,7 @@
       <input type="text" name="ADDID" value="">
       <input type="submit" name="submit" value="Submit">
     </form>
-    <?php
+';
       include 'addclass.php';
       session_start();
 
@@ -26,6 +28,10 @@
         echo "<p>Current Company Name is " + $addclass->companyName() + "</p>";
         echo $addclass->listDB();
       }
-     ?>
+
+
+echo '
   </body>
-</html>
+</html>';
+
+?>
