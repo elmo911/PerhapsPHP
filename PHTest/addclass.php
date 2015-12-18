@@ -20,6 +20,19 @@ class AddToDB
     return $ID["Name"];
   }
 
+  public function companyOptions()
+  {
+    $out = '';
+    $sql_select = "SELECT CompanyID, Name from Company";
+    $stmt = $this->conn->prepare($sql_select);
+    $stmt->execute();
+    while($row = $stmt->fetch()){
+      $out = $out. '
+      <option value="'.$row["CompanyID"].'">'.$row["Name"].'</option>';
+    }
+    return $out;
+  }
+
   public function addAnswer($Answer){
     $sql_insert = "INSERT INTO `QuestionDB`.`Answer` (`Answer`) VALUES ('".$Answer."')";
     $stmt = $this->conn->prepare($sql_insert);
@@ -30,6 +43,19 @@ class AddToDB
     $stmt->execute();
     $ID = $stmt->fetch();
     return $ID["AnswerID"];
+  }
+
+  public function answerOptions()
+  {
+    $out = '';
+    $sql_select = "SELECT AnswerID, Answer from Answer";
+    $stmt = $this->conn->prepare($sql_select);
+    $stmt->execute();
+    while($row = $stmt->fetch()){
+      $out = $out. '
+      <option value="'.$row["AnswerID"].'">'.$row["AnswerID"].'</option>';
+    }
+    return $out;
   }
 
   public function addView($InputType, $ResponseType){

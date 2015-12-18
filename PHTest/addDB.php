@@ -27,18 +27,35 @@ echo '
     }
     echo '
     <form class="" action="addDB.php" method="post">
-      <input type="text" name="ADDID" value="" placeholder = "CompanyID">
+      <select name="ADDID">';
+      echo $addclass->companyOptions();
+      echo '
+      </select>
       <input type="submit" name="submit" value="Submit">
     </form>
-    <p>
+    <h3>
       Add Question
-    </p>
+    </h3>
     <form class="" action="addDB.php" method="post">
       <input type="text" name="QuestionContent" value="" placeholder="Content">
       <select name="QuestionViewID">';
       echo $addclass->viewOptions();
       echo '
       </select>
+      <input type="submit" name="submit" value="Submit">
+    </form>
+    <h3>
+      Add Answer
+    </h3>
+    <form class="" action="addDB.php" method="post">
+      <input type="text" name="Answer" value="" placeholder="Answer">
+      <input type="submit" name="submit" value="Submit">
+    </form>
+    <h3>
+      Add Activity
+    </h3>
+    <form class="" action="addDB.php" method="post">
+      <input type="text" name="Activity" value="" placeholder="Activity">
       <input type="submit" name="submit" value="Submit">
     </form>
 ';
