@@ -145,7 +145,28 @@ class AddToDB
 
   public function listDB(){
     $out = '
-    <table>
+    <table>';
+
+    $out = $out . '
+    <tr>
+      <td><h2>CompanyQuestionSet</h2></td>
+    </tr>';
+    $answerHeaders = array("Company", "Activity", "Question", "Answer");
+    $out = $this->printHeaders($answerHeaders, $out);
+    $sql_selq = "SELECT Company.Name As Name, Activity.ActivityName As Activity,
+    Question.Content As Question, Answer.Answer As Answer
+    From CompanyQuestionSet, Company, Question, Answer, Activity
+    Where Company.CompanyID = ".$this->CompanyID." 
+    and CompanyQuestionSet.CompanyID = Company.CompanyID
+    and CompanyQuestionSet.ActivityID = Activity.ActivityID
+    and CompanyQuestionSet.QuestionID = Question.QuestionID
+    and CompanyQuestionSet.AnswerID = Answer.AnswerID";
+    $stmt = $this->conn->prepare($sql_selq);
+    $stmt->execute();
+    $out = $this->printRows($stmt, $out);
+
+    $out = $out . '
+      <br><br>
       <tr>
         <td><h2>Question</h2></td>
       </tr>';
@@ -204,17 +225,7 @@ class AddToDB
       $stmt->execute();
       $out = $this->printRows($stmt, $out);
 
-      $out = $out . '
-      <br><br>
-      <tr>
-        <td><h2>CompanyQuestionSet</h2></td>
-      </tr>';
-      $answerHeaders = array("CompanyID", "ActivityID", "QuestionID", "AnswerID");
-      $out = $this->printHeaders($answerHeaders, $out);
-      $sql_selq = "SELECT * from CompanyQuestionSet";
-      $stmt = $this->conn->prepare($sql_selq);
-      $stmt->execute();
-      $out = $this->printRows($stmt, $out);
+
 
 
       $out = $out . '
