@@ -91,9 +91,12 @@ class AddToDB
       while($Question = $stmt->fetch()){
         $out = $out . '
         <tr>';
+        $count = 0;
         foreach ($Question as $key) {
-          $out = $out . '
-          <td>'.$key.'</td>';
+          if($count % 2 == 1){
+            $out = $out . '
+            <td>'.$key.'</td>';
+          }
         }
         $out = $out . '
         </tr>';
