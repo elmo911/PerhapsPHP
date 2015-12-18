@@ -18,12 +18,12 @@ echo '
     session_unset();
   }
 
-  if(isset($_POST["SQLUser"]), isset($_POST["SQLPassword"])){
+  if(isset($_POST["SQLUser"]) && isset($_POST["SQLPassword"])){
     $_SESSION["SQLUser"] = $_POST["SQLUser"];
     $_SESSION["SQLPassword"] = $_POST["SQLPassword"];
   }
 
-  if(isset($_SESSION["SQLUser"]), isset($_SESSION["SQLPassword"])){
+  if(isset($_SESSION["SQLUser"]) && isset($_SESSION["SQLPassword"])){
     $auth = true;
     echo "<p>Current SQL User is ". $_SESSION["SQLUser"] ."</p>";
   }
