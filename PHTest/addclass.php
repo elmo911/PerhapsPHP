@@ -87,28 +87,31 @@ class AddToDB
       $sql_selq = "SELECT * from Question";
       $stmt = $this->conn->prepare($sql_selq);
       $stmt->execute();
-
-      while($Question = $stmt->fetch()){
-        $out = $out . '
-        <tr>';
-        $count = 0;
-        foreach ($Question as $key) {
-          if($count % 2 == 1){
-            $out = $out . '
-            <td>'.$key.'</td>';
-          }
-          $count++;
-        }
-        $out = $out . '
-        </tr>';
-      }
-
-
+      $this->printRows($stmt);
 
       $out = $out . '
       </table>';
       return $out;
   }
+
+
+  private function printRows($stmt){
+    while($row = $stmt->fetch()){
+      $out = $out . '
+      <tr>';
+      $count = 0;
+      foreach ($row as $key) {
+        if($count % 2 == 1){
+          $out = $out . '
+          <td>'.$key.'</td>';
+        }
+        $count++;
+      }
+      $out = $out . '
+      </tr>';
+    }
+  }
+
 
 }
 
