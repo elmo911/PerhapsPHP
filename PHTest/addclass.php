@@ -132,6 +132,18 @@ class AddToDB
       $stmt->execute();
       $out = $this->printRows($stmt, $out);
 
+      $out = $out . '
+      <br><br>
+      <tr>
+        <td><h2>CompanyQuestionSet</h2></td>
+      </tr>';
+      $answerHeaders = array("CompanyID", "ActivityID", "QuestionID", "AnswerID");
+      $out = $this->printHeaders($answerHeaders, $out);
+      $sql_selq = "SELECT * from CompanyQuestionSet";
+      $stmt = $this->conn->prepare($sql_selq);
+      $stmt->execute();
+      $out = $this->printRows($stmt, $out);
+
 
       $out = $out . '
       </table>';
