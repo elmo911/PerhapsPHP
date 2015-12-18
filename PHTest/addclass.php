@@ -76,14 +76,9 @@ class AddToDB
     <table style="width:100%">
       <tr>
         <td>Questions</td>
-      </tr>
-      <tr>
-        <td><strong>QuestionID</strong></td>
-        <td><strong>ViewID</strong></td>
-        <td><strong>Content</strong></td>
-        <td><strong>Private</strong></td>
-        <td><strong>TimeStamp</strong></td>
       </tr>';
+      $questionHeaders = array("QuestionID", "ViewID", "Content", "Private", "TimeStamp");
+      $this->printHeaders($questionHeaders);
       $sql_selq = "SELECT * from Question";
       $stmt = $this->conn->prepare($sql_selq);
       $stmt->execute();
@@ -95,9 +90,15 @@ class AddToDB
   }
 
 private function printHeaders($Headers, $out){
+  $out = $out . '
+  <tr>';
   foreach ($Headers as $header) {
-    # code...
+    $out = $out . '
+    <td><strong>'.$header.'</strong></td>';
   }
+  $out = $out . '
+  </tr>';
+  return $out;
 }
 
   private function printRows($stmt, $out){
