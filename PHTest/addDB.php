@@ -1,4 +1,7 @@
 <?php
+include 'addclass.php';
+session_start();
+
 echo '
 <!DOCTYPE html>
 <html>
@@ -15,15 +18,13 @@ echo '
       <input type="submit" name="submit" value="Submit">
     </form>
 ';
-      include 'addclass.php';
-      session_start();
 
       if(isset($_POST["ADDID"])){
         $_SESSION["ADDID"] = $_POST["ADDID"];
       }
 
       if(isset($_SESSION["ADDID"])){
-        echo "<p>Current CompanyID is "+$_SESSION["ADDID"]+"</p>";
+        echo "<p>Current CompanyID is "+ $_SESSION["ADDID"] +"</p>";
         $addclass = new AddToDB($_SESSION["ADDID"]);
         echo "<p>Current Company Name is " + $addclass->companyName() + "</p>";
         echo $addclass->listDB();
